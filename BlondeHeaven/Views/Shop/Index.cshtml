@@ -1,0 +1,29 @@
+﻿@*@model List<LanZhouBeefNoodles.Models.Noodle>*@
+@model BlondeHeaven.ViewModels.ShopModelView
+
+@{ ViewData["Title"] = "Index"; }
+
+<h2>产品列表</h2>
+
+@foreach (var noodle in Model.ShopKeepers)
+{
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h3 class="pull-right">￥@noodle.Phone</h3>
+            <h3>
+                <a asp-controller="shop"
+                   asp-action="Details"
+                   asp-route-id="@noodle.Id">@noodle.Name</a>
+            </h3>
+
+            <h3>
+                <a asp-controller="shop"
+                   asp-action="Delete"
+                   asp-route-id="@noodle.Id">@noodle.Name</a>
+            </h3>
+            <p>@noodle.Sales</p>
+            <p>@noodle.Photo</p>
+        </div>
+    </div>
+</div>}
