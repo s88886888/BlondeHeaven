@@ -1,11 +1,12 @@
 ﻿using BlondeHeaven.Models;
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlondeHeaven.Controllers
 {
-
+    [Authorize]
     public class ShopController : Controller
     {
         private IShopKeeperRepository _db;
@@ -84,6 +85,7 @@ namespace BlondeHeaven.Controllers
 
             ShopKeeper shop = new ShopKeeper();
             shop.Id = ShopViewModel.Id;
+            shop.UserShopId = 1;
             shop.Name = ShopViewModel.Name;
             shop.Phone = ShopViewModel.Phone;
             shop.Photo = ShopViewModel.Photo;
@@ -105,8 +107,6 @@ namespace BlondeHeaven.Controllers
             shopViewModel.Id = shop.Id;
             shopViewModel.Sales = shop.Sales;
             shopViewModel.Address = shop.Address;
-
-
             return View(shopViewModel);
         }
 

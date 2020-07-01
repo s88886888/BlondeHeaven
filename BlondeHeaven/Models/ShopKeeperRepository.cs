@@ -27,6 +27,7 @@ namespace BlondeHeaven.Models
         public ShopKeeper EditAsync(ShopKeeper model)
         {
             _m_context.Entry(model).State = EntityState.Modified;
+            _m_context.SaveChanges();
             return model;
         }
 

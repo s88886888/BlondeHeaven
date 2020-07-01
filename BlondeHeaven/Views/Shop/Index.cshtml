@@ -14,14 +14,25 @@
             <h3>
                 <a asp-controller="shop"
                    asp-action="Details"
-                   asp-route-id="@noodle.Id">@noodle.Name</a>
+                   asp-route-id="@noodle.Id">详细</a>
             </h3>
 
             <h3>
                 <a asp-controller="shop"
                    asp-action="Delete"
-                   asp-route-id="@noodle.Id">@noodle.Name</a>
+                   asp-route-id="@noodle.Id">删除</a>
             </h3>
+            <h3>
+                <a asp-controller="shop"
+                   asp-action="Edit"
+                   asp-route-id="@noodle.Id">编辑</a>
+            </h3>
+
+
+
+
+
+
             <p>@noodle.Sales</p>
             <p>@noodle.Photo</p>
         </div>
