@@ -8,12 +8,12 @@ namespace BlondeHeaven.Models.Interface
 {
     public interface ICommodityRepository
     {
-        List<Commodity> GetAllShopKeepers();
+        List<Commodity> GetAllCommodity();
 
-        Commodity GetShopKeeperleById(int id);
-        List<Commodity> GetShopKeeperleByIdall(int id);
-        Commodity AddAsync(Commodity model);
-        Commodity EditAsync(Commodity model);
+        Commodity GetCommodityById(int id);
+        List<Commodity> GetCommodityByoneId(int id);
+        Commodity Add(Commodity model);
+        Commodity Edit(Commodity model);
         void Remo(int id);
     }
 }

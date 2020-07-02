@@ -27,8 +27,10 @@ namespace BlondeHeaven.Model
         /// 照片
         /// </summary>
         public string Photo { get; set; }
+
+
         [ForeignKey(nameof(ShopKeeper))]
         public int ShopKeeperId { get; set; }
-        public ShopKeeper ShopKeepers { get; set; }
+
     }
 }

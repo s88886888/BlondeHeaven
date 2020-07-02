@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlondeHeaven.Model;
 using BlondeHeaven.Models.Interface;
+using BlondeHeaven.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +20,7 @@ namespace BlondeHeaven.Controllers
         // GET: CommodityController
         public ActionResult Index()
         {
-     
+
             return View();
         }
 
@@ -29,24 +31,25 @@ namespace BlondeHeaven.Controllers
         }
 
         // GET: CommodityController/Create
-        public ActionResult Create()
+        public ActionResult Create(int id, CommodityViewModel model)
         {
-            return View();
+            model.Id = id;
+            return View(model);
         }
 
         // POST: CommodityController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(CommodityViewModel model)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+
+            Commodity com = new Commodity();
+            com.Name = model.Name;
+            com.Photo = model.Photo;
+            com.Price = model.Price;
+            com.ShopKeeperId = model.Id;
+            _db.Add(com);
+          return  RedirectToAction("index", "shop");
         }
 
         // GET: CommodityController/Edit/5

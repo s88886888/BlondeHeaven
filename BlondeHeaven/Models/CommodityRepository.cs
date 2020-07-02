@@ -17,40 +17,40 @@ namespace BlondeHeaven.Models
             _m_context = m_context;
         }
 
-        public Commodity AddAsync(Commodity model)
+        public Commodity Add(Commodity model)
         {
             _m_context.Commoditys.Add(model);
             _m_context.SaveChanges();
             return model;
         }
 
-        public Commodity EditAsync(Commodity model)
+        public Commodity Edit(Commodity model)
         {
             _m_context.Entry(model).State = EntityState.Modified;
             return model;
         }
 
-        public List<Commodity> GetAllShopKeepers()
+        public List<Commodity> GetAllCommodity()
         {
             var shop = _m_context.Commoditys.Where(m => m.IsRemo == false).ToList();
             return shop;
         }
 
-        public Commodity GetShopKeeperleById(int id)
+        public Commodity GetCommodityById(int id)
         {
 
-            return GetAllShopKeepers().FirstOrDefault(m => m.Id == id);
+            return GetAllCommodity().FirstOrDefault(m => m.Id == id);
         }
-        public List<Commodity> GetShopKeeperleByIdall(int id)
+        public List<Commodity> GetCommodityByoneId(int id)
         {
 
-            var shop = GetAllShopKeepers().Where(m => m.ShopKeeperId == id).ToList();
+            var shop = GetAllCommodity().Where(m => m.ShopKeeperId == id).ToList();
             return shop;
         }
 
         public void Remo(int id)
         {
-            var shop = GetShopKeeperleById(id);
+            var shop = GetCommodityById(id);
             shop.IsRemo = true;
             _m_context.Entry(shop).State = EntityState.Modified;
             _m_context.SaveChanges();

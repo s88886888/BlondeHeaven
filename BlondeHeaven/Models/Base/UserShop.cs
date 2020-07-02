@@ -13,6 +13,8 @@ namespace BlondeHeaven.Models
 
         [Required, StringLength(50)]
         public string PassWrod { get; set; }
+
+
         public List<ShopKeeper> ShopKeepers { get; set; }
     }
 }

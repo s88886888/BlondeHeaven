@@ -22,9 +22,11 @@ namespace BlondeHeaven.Models
         /// 价格
         /// </summary>
         public int Sales { get; set; }
+
         [ForeignKey(nameof(UserShop))]
         public int UserShopId { get; set; }
-        public UserShop UserShops { get; set; }
+
+
         public List<Comment>  Comments { get; set; }
         public List<Commodity> Commoditys { get; set; }
         public List<Ranking> Rankings { get; set; }

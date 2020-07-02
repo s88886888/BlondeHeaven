@@ -17,10 +17,6 @@ namespace BlondeHeaven.Models
         {
 
         }
-
-        public DbSet<Noodle> Noodles { get; set; }
-
-        public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<ShopKeeper> ShopKeepers { get; set; }
 
         public DbSet<User> Uesrs { get; set; }

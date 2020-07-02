@@ -94,7 +94,6 @@ C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\bin\Debug\netco
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\bin\Debug\netcoreapp2.1\LanZhouBeefNoodles.pdb
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\bin\Debug\netcoreapp2.1\LanZhouBeefNoodles.Views.dll
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\bin\Debug\netcoreapp2.1\LanZhouBeefNoodles.Views.pdb
-C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\BlondeHeaven.csprojAssemblyReference.cache
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\BlondeHeaven.AssemblyInfoInputs.cache
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\BlondeHeaven.AssemblyInfo.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\BlondeHeaven.RazorAssemblyInfo.cache
@@ -109,10 +108,6 @@ C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netco
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
-C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Feedback\FeedbackComplete.cshtml.g.cs
-C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Feedback\Index.cshtml.g.cs
-C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Home\Detail.cshtml.g.cs
-C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -126,10 +121,11 @@ C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netco
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\BlondeHeaven.genruntimeconfig.cache
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\BlondeHeaven.csproj.CopyComplete
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\BlondeHeaven.csproj.CoreCompileInputs.cache
-C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Home\Create.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Shop\Create.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Shop\Index.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Shop\Details.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Shop\Edit.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Shop\Delete.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Commodity\Create.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Order\Create.cshtml.g.cs

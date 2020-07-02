@@ -40,7 +40,7 @@ namespace BlondeHeaven.Controllers
             var viewModel = new ShopModelView()
             {
                 ShopKeepers = _db.GetShopKeeperleByIdall(id),
-                Commoditys = _com.GetShopKeeperleByIdall(id)
+                Commoditys = _com.GetCommodityByoneId(id)
             };
 
 

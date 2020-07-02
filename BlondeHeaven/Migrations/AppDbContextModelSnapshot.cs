@@ -79,59 +79,13 @@ namespace BlondeHeaven.Migrations
                     b.ToTable("Commoditys");
                 });
 
-            modelBuilder.Entity("BlondeHeaven.Models.Feedback", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreateDateUTC");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasMaxLength(400);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Feedbacks");
-                });
-
-            modelBuilder.Entity("BlondeHeaven.Models.Noodle", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ImageURL");
-
-                    b.Property<bool>("IsInStock");
-
-                    b.Property<string>("LongDescription");
-
-                    b.Property<string>("Name");
-
-                    b.Property<decimal>("Price");
-
-                    b.Property<string>("ShortDescription");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Noodles");
-                });
-
             modelBuilder.Entity("BlondeHeaven.Models.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CommodityId");
 
                     b.Property<DateTime>("DateTime");
 
@@ -143,7 +97,7 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<int>("ShopKeeperId");
 
-                    b.Property<int?>("UserId");
+                    b.Property<int>("UserId");
 
                     b.HasKey("Id");
 
@@ -463,7 +417,7 @@ namespace BlondeHeaven.Migrations
 
             modelBuilder.Entity("BlondeHeaven.Model.Commodity", b =>
                 {
-                    b.HasOne("BlondeHeaven.Models.ShopKeeper", "ShopKeepers")
+                    b.HasOne("BlondeHeaven.Models.ShopKeeper")
                         .WithMany("Commoditys")
                         .HasForeignKey("ShopKeeperId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -475,14 +429,15 @@ namespace BlondeHeaven.Migrations
 
             modelBuilder.Entity("BlondeHeaven.Models.Order", b =>
                 {
-                    b.HasOne("BlondeHeaven.Models.ShopKeeper", "ShopKeepers")
+                    b.HasOne("BlondeHeaven.Models.ShopKeeper")
                         .WithMany("Orders")
                         .HasForeignKey("ShopKeeperId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("BlondeHeaven.Models.User")
                         .WithMany("Orders")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("BlondeHeaven.Models.Ranking", b =>
@@ -495,7 +450,7 @@ namespace BlondeHeaven.Migrations
 
             modelBuilder.Entity("BlondeHeaven.Models.ShopKeeper", b =>
                 {
-                    b.HasOne("BlondeHeaven.Models.UserShop", "UserShops")
+                    b.HasOne("BlondeHeaven.Models.UserShop")
                         .WithMany("ShopKeepers")
                         .HasForeignKey("UserShopId")
                         .OnDelete(DeleteBehavior.Cascade);

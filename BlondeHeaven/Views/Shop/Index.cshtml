@@ -4,37 +4,35 @@
 @{ ViewData["Title"] = "Index"; }
 
 <h2>产品列表</h2>
+<h3>
+    <a asp-controller="shop"
+       asp-action="Create">添加</a>
+</h3>
 
 @foreach (var noodle in Model.ShopKeepers)
 {
 <div class="col-sm-4 col-lg-4 col-md-4">
     <div class="thumbnail">
+        <img src="@noodle.Photo" alt="">
         <div class="caption">
-            <h3 class="pull-right">￥@noodle.Phone</h3>
-            <h3>
+            <h3 class="pull-right">￥@noodle.Sales</h3>
+            <h4>
                 <a asp-controller="shop"
                    asp-action="Details"
                    asp-route-id="@noodle.Id">详细</a>
-            </h3>
+            </h4>
 
-            <h3>
+            <h4>
                 <a asp-controller="shop"
                    asp-action="Delete"
                    asp-route-id="@noodle.Id">删除</a>
-            </h3>
-            <h3>
+            </h4>
+            <h4>
                 <a asp-controller="shop"
                    asp-action="Edit"
                    asp-route-id="@noodle.Id">编辑</a>
-            </h3>
-
-
-
-
-
-
-            <p>@noodle.Sales</p>
-            <p>@noodle.Photo</p>
+            </h4>
+            <p>@noodle.Phone</p>
         </div>
     </div>
 </div>}
