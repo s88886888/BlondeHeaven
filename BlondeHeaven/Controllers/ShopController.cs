@@ -66,6 +66,13 @@ namespace BlondeHeaven.Controllers
         {
             var edit = new ShopViewModel();
             edit.Id = id;
+            edit.UserId = 1;
+            var shop = _db.GetShopKeeperleById(id);
+            edit.Name = shop.Name;
+            edit.Phone = shop.Phone;
+            edit.Sales = shop.Sales;
+            edit.Sales = shop.Sales;
+            edit.Address = shop.Address;
             return View(edit);
         }
 

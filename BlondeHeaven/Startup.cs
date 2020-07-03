@@ -36,7 +36,7 @@ namespace BlondeHeaven
 
             //身份验证
             services.AddDefaultIdentity<IdentityUser>().
-                AddEntityFrameworkStores<AppDbContext>().     
+                AddEntityFrameworkStores<AppDbContext>().
                 AddDefaultTokenProviders();
 
 
@@ -56,7 +56,7 @@ namespace BlondeHeaven
 
             //身份认证
             app.UseAuthentication();
-            
+
 
             //设置路由
             app.UseMvc(route =>
