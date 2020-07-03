@@ -128,4 +128,8 @@ C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netco
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Shop\Edit.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Shop\Delete.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Commodity\Create.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\BlondeHeaven.csprojAssemblyReference.cache
+C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Personal\Order.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Order\Create.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Order\Index.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\ASP.NetMVC-Demo\BlondeHeaven\obj\Debug\netcoreapp2.1\Razor\Views\Personal\Index.cshtml.g.cs

@@ -1,4 +1,5 @@
 ﻿using BlondeHeaven.Models;
+using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,6 @@ namespace BlondeHeaven.Models
         {
 
 
-
             if (!context.UserShops.Any())
             {
                 context.AddRange
@@ -24,8 +24,6 @@ namespace BlondeHeaven.Models
                 );
                 context.SaveChanges();
             }
-
-
             if (!context.ShopKeepers.Any())
             {
                 context.AddRange
@@ -49,6 +47,14 @@ namespace BlondeHeaven.Models
             }
 
 
+            if (!context.Users.Any())
+            {
+                context.AddRange
+                (
+                  new User { Name = "土豪", Phone = "88888888", PassWrod = "88888888", IsRemo = false, DateTime = DateTime.Now, Address = "楼上", Sex = true, Age = 22, Photo = "123.jpg" }
+                );
+                context.SaveChanges();
+            }
         }
     }
 }

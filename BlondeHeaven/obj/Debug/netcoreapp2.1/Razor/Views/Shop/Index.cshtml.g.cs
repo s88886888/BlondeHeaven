@@ -59,7 +59,7 @@ namespace AspNetCore
             WriteLiteral("\n<h2>产品列表</h2>\n<h3>\n    ");
             EndContext();
             BeginContext(154, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "252c5a1f056c45a88e1260469ad3146b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e078e5a7cbd94476b80c07dfcdfee3ba", async() => {
                 BeginContext(206, 2, true);
                 WriteLiteral("添加");
                 EndContext();
@@ -112,7 +112,7 @@ WriteAttributeValue("", 352, noodle.Photo, 352, 13, false);
             WriteLiteral("</h3>\n            <h4>\n                ");
             EndContext();
             BeginContext(493, 116, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dac3818c28ac4a2db319b0772e92ea46", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cab9cb3f7dc44d1da840f7609bffdb8b", async() => {
                 BeginContext(603, 2, true);
                 WriteLiteral("详细");
                 EndContext();
@@ -149,7 +149,7 @@ WriteAttributeValue("", 352, noodle.Photo, 352, 13, false);
             WriteLiteral("\n            </h4>\n\n            <h4>\n                ");
             EndContext();
             BeginContext(662, 115, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "89415b24ffb74f1fae57456abb3b39f0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "577342c081bf43e38c00c34eed9d2d7a", async() => {
                 BeginContext(771, 2, true);
                 WriteLiteral("删除");
                 EndContext();
@@ -186,7 +186,7 @@ WriteAttributeValue("", 352, noodle.Photo, 352, 13, false);
             WriteLiteral("\n            </h4>\n            <h4>\n                ");
             EndContext();
             BeginContext(829, 113, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3d6548ba95924573bf69b6c31d396336", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "603a17becdf34769a2c611d611e9ae65", async() => {
                 BeginContext(936, 2, true);
                 WriteLiteral("编辑");
                 EndContext();

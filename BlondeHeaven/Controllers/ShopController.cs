@@ -29,14 +29,6 @@ namespace BlondeHeaven.Controllers
         // GET: ShopController1/Details/5
         public ActionResult Details(int id, ShopViewModel shopViewModel)
         {
-            //shopViewModel.Name = shop.Name;
-            //shopViewModel.Phone = shop.Phone;
-            //shopViewModel.Sales = shop.Sales;
-            //shopViewModel.UserId = shop.UserShopId;
-            //shopViewModel.Id = shop.Id;
-            //shopViewModel.Sales = shop.Sales;
-            //shopViewModel.Address = shop.Address;
-
             var viewModel = new ShopModelView()
             {
                 ShopKeepers = _db.GetShopKeeperleByIdall(id),
