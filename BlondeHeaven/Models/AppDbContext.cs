@@ -19,15 +19,9 @@ namespace BlondeHeaven.Models
         }
         public DbSet<ShopKeeper> ShopKeepers { get; set; }
 
-        public DbSet<User> Uesrs { get; set; }
-        public DbSet<UserShop> UserShops { get; set; }
-        public DbSet<Waiter> Waiters { get; set; }
-        public DbSet<Ranking> Rankings { get; set; }
+        public DbSet<ApplicationUser> Uesrs { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Commodity> Commoditys { get; set; }
-
-
-
     }
 }

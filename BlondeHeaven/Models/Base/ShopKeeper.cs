@@ -23,13 +23,13 @@ namespace BlondeHeaven.Models
         /// </summary>
         public int Sales { get; set; }
 
-        [ForeignKey(nameof(UserShop))]
-        public int UserShopId { get; set; }
+        [ForeignKey(nameof(ApplicationUser))]
+        public int UserId { get; set; }
 
 
         public List<Comment>  Comments { get; set; }
         public List<Commodity> Commoditys { get; set; }
-        public List<Ranking> Rankings { get; set; }
+
         public List<Order> Orders { get; set; }
     }
 }

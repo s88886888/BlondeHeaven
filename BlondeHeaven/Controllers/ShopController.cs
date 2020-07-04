@@ -25,7 +25,7 @@ namespace BlondeHeaven.Controllers
             };
             return View(viewModel);
         }
-
+         [Authorize(Roles ="Admin")]
         // GET: ShopController1/Details/5
         public ActionResult Details(int id, ShopViewModel shopViewModel)
         {
@@ -84,7 +84,7 @@ namespace BlondeHeaven.Controllers
 
             ShopKeeper shop = new ShopKeeper();
             shop.Id = ShopViewModel.Id;
-            shop.UserShopId = 1;
+            shop.UserId = 1;
             shop.Name = ShopViewModel.Name;
             shop.Phone = ShopViewModel.Phone;
             shop.Photo = ShopViewModel.Photo;
@@ -102,7 +102,7 @@ namespace BlondeHeaven.Controllers
             shopViewModel.Name = shop.Name;
             shopViewModel.Phone = shop.Phone;
             shopViewModel.Sales = shop.Sales;
-            shopViewModel.UserId = shop.UserShopId;
+            shopViewModel.UserId = shop.UserId;
             shopViewModel.Id = shop.Id;
             shopViewModel.Sales = shop.Sales;
             shopViewModel.Address = shop.Address;
