@@ -10,7 +10,7 @@ namespace BlondeHeaven.Models.Interface
         List<Order> GetAllShopKeepers();
 
         Order GetOrderById(int id);
-        List<Order> GetOrderByondeId(int id);
+        List<Order> GetOrderByondeId(string id);
         Order Add(Order model);
         Order Edit(Order model);
         void Remo(int id);

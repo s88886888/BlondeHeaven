@@ -6,6 +6,7 @@ using BlondeHeaven.Models;
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlondeHeaven.Controllers
@@ -14,10 +15,12 @@ namespace BlondeHeaven.Controllers
     {
         private IOrderRepository _db;
         private ICommodityRepository _com;
-        public OrderController(IOrderRepository db, ICommodityRepository com)
+        private UserManager<ApplicationUser> _userManager;
+        public OrderController(IOrderRepository db, ICommodityRepository com, UserManager<ApplicationUser> userManager)
         {
             _db = db;
             _com = com;
+            _userManager = userManager;
         }
         // GET: OrderController
         public ActionResult Index()
@@ -33,15 +36,15 @@ namespace BlondeHeaven.Controllers
 
 
         // GET: OrderController/Create
-        public ActionResult Create(int Id, OrderViewModel order)
+        public async Task<ActionResult> Create(int Id, OrderViewModel order)
         {
+
+            var res = await _userManager.GetUserAsync(HttpContext.User);
             var com = _com.GetCommodityById(Id);
-            order.UserId = 1;
+            order.UserId = res.Id;
             order.ShopKeepeid = com.ShopKeeperId;
             order.CommodityId = com.Id;
             order.Price = com.Price;
-
-
             return View(order);
         }
 
@@ -56,7 +59,7 @@ namespace BlondeHeaven.Controllers
             order.Name = orderViewModel.Name;
             order.ShopKeeperId = orderViewModel.ShopKeepeid;
             order.CommodityId = orderViewModel.CommodityId;
-            order.UserId = orderViewModel.UserId;
+            order.ApplicationUserId = orderViewModel.UserId;
             _db.Add(order);
             return View();
         }

@@ -46,10 +46,10 @@ namespace BlondeHeaven.Models
             return GetAllOrder().FirstOrDefault(m => m.Id == id);
         }
 
-        public List<Order> GetOrderByondeId(int id)
+        public List<Order> GetOrderByondeId(string id)
         {
 
-            var shop = GetAllOrder().Where(m => m.UserId == id).ToList();
+            var shop = GetAllOrder().Where(m => m.ApplicationUserId == id).ToList();
             return shop;
         }
 

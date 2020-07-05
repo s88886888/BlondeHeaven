@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace BlondeHeaven.Controllers
-{
-    [Authorize]
+{ 
     public class ShopController : Controller
     {
         private IShopKeeperRepository _db;
@@ -29,7 +28,6 @@ namespace BlondeHeaven.Controllers
             };
             return View(viewModel);
         }
-        [Authorize(Roles = "Admin")]
         // GET: ShopController1/Details/5
         public ActionResult Details(int id, ShopViewModel shopViewModel)
         {
@@ -42,6 +40,7 @@ namespace BlondeHeaven.Controllers
 
             return View(viewModel);
         }
+        [Authorize(Roles ="AdminShop")]
         // GET: ShopController1/Create
         public ActionResult Create()
         {
@@ -53,20 +52,9 @@ namespace BlondeHeaven.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ShopViewModel ShopViewModel)
         {
-
             //动态获取当前登入用户信息
             var res = await _userManager.GetUserAsync(HttpContext.User);
-
             ShopKeeper shop = new ShopKeeper();
-
-            
-
-
-
-
-
-
-
             shop.Name = ShopViewModel.Name;
             shop.Phone = ShopViewModel.Phone;
             shop.Photo = ShopViewModel.Photo;
@@ -76,7 +64,7 @@ namespace BlondeHeaven.Controllers
             _db.AddAsync(shop);
             return View(ShopViewModel);
         }
-
+        [Authorize(Roles = "AdminShop")]
         // GET: ShopController1/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
@@ -92,7 +80,7 @@ namespace BlondeHeaven.Controllers
             edit.Address = shop.Address;
             return View(edit);
         }
-
+        [Authorize(Roles = "AdminShop")]
         // POST: ShopController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -113,7 +101,7 @@ namespace BlondeHeaven.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "AdminShop")]
         // GET: ShopController1/Delete/5
         public ActionResult Delete(int id, ShopViewModel shopViewModel)
         {

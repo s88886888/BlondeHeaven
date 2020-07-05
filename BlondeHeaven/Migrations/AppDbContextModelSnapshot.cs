@@ -99,8 +99,6 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<int>("ShopKeeperId");
 
-                    b.Property<int>("UserId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationUserId");
@@ -308,10 +306,6 @@ namespace BlondeHeaven.Migrations
             modelBuilder.Entity("BlondeHeaven.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<int>("Age");
-
-                    b.Property<bool>("Sex");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });

@@ -12,7 +12,7 @@ namespace BlondeHeaven.ViewModels
         public string Name { get; set; }
         public double Price { get; set; }
         public int ShopKeepeid { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         public int CommodityId { get; set; }
 

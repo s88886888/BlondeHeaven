@@ -20,14 +20,20 @@ namespace BlondeHeaven.Controllers
         // GET: CommodityController
         public ActionResult Index()
         {
-
             return View();
         }
 
         // GET: CommodityController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            CommodityViewModel model = new CommodityViewModel();
+            var com = _db.GetCommodityById(id);
+            model.Name = com.Name;
+            model.Photo = com.Photo;
+            model.Price = com.Price;
+            model.CreateCommodity = com.CreateCommodity;
+            model.ShopKeeperId = com.ShopKeeperId;
+            return View(model);
         }
 
         // GET: CommodityController/Create
@@ -47,51 +53,46 @@ namespace BlondeHeaven.Controllers
             com.Name = model.Name;
             com.Photo = model.Photo;
             com.Price = model.Price;
+            com.CreateCommodity = model.CreateCommodity;
             com.ShopKeeperId = model.Id;
             _db.Add(com);
-          return  RedirectToAction("index", "shop");
+            return RedirectToAction("index", "shop");
         }
 
         // GET: CommodityController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            CommodityViewModel model = new CommodityViewModel();
+            var com = _db.GetCommodityById(id);
+            model.Name = com.Name;
+            model.Photo = com.Photo;
+            model.Price = com.Price;
+            model.CreateCommodity = com.CreateCommodity;
+            model.ShopKeeperId = com.ShopKeeperId;
+            return View(model);
         }
 
         // POST: CommodityController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(CommodityViewModel model)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var com = new Commodity();
+            com.Name = model.Name;
+            com.Photo = model.Photo;
+            com.Price = model.Price;
+            com.CreateCommodity = model.CreateCommodity;
+            com.ShopKeeperId = model.Id;
+            _db.Edit(com);
+            return RedirectToAction("index", "shop");
         }
-
-        // GET: CommodityController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: CommodityController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _db.Remo(id);
+            return RedirectToAction("index", "shop");
         }
     }
 }

@@ -44,15 +44,7 @@ namespace BlondeHeaven
 
 
             //身份验证
-            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
-            {
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequiredLength = 1;
-            })
-                  .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<AppDbContext>();
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

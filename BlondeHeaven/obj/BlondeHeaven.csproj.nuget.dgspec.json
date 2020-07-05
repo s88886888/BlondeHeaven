@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\大大卷泡泡乐\\Desktop\\0.0\\BlondeHeaven2.0\\BlondeHeaven\\BlondeHeaven.csproj": {}
+    "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\BlondeHeaven2.0\\BlondeHeaven\\BlondeHeaven.csproj": {}
   },
   "projects": {
-    "C:\\Users\\大大卷泡泡乐\\Desktop\\0.0\\BlondeHeaven2.0\\BlondeHeaven\\BlondeHeaven.csproj": {
+    "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\BlondeHeaven2.0\\BlondeHeaven\\BlondeHeaven.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.0\\BlondeHeaven2.0\\BlondeHeaven\\BlondeHeaven.csproj",
+        "projectUniqueName": "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\BlondeHeaven2.0\\BlondeHeaven\\BlondeHeaven.csproj",
         "projectName": "BlondeHeaven",
-        "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.0\\BlondeHeaven2.0\\BlondeHeaven\\BlondeHeaven.csproj",
+        "projectPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\BlondeHeaven2.0\\BlondeHeaven\\BlondeHeaven.csproj",
         "packagesPath": "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.0\\BlondeHeaven2.0\\BlondeHeaven\\obj\\",
+        "outputPath": "C:\\Users\\大大卷泡泡乐\\Desktop\\QAQ\\BlondeHeaven2.0\\BlondeHeaven\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "E:\\Microsoft\\Xamarin\\NuGet\\",

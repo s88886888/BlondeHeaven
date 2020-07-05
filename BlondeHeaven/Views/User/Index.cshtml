@@ -24,8 +24,6 @@
             <th scope="row">@u.Id</th>
             <td>@u.UserName</td>
             <td>@u.Email</td>
-            <td>@u.Age</td>
-            <td>@u.Sex</td>
             <td>
                 <form asp-action="DeleteUser" asp-route-id="@u.Id" method="post">
                     <a asp-action="EditUser" asp-route-id="@u.Id" class="btn btn-primary">编辑</a>

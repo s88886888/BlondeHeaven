@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlondeHeaven.Models;
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
 using BlondeHeaven.ViewModels.Base;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlondeHeaven.Controllers
@@ -14,11 +16,12 @@ namespace BlondeHeaven.Controllers
     {
         private IOrderRepository _or;
         private ICommodityRepository _com;
-
-        public PersonalController(IOrderRepository or, ICommodityRepository com)
+        private UserManager<ApplicationUser> _userManager;
+        public PersonalController(IOrderRepository or, ICommodityRepository com, UserManager<ApplicationUser> userManager)
         {
             _or = or;
             _com = com;
+            _userManager = userManager;
         }
         // GET: PersonalController
         public ActionResult Index()
@@ -35,13 +38,12 @@ namespace BlondeHeaven.Controllers
         }
 
         // GET: PersonalController/Create
-        public ActionResult Order()
+        public async Task<ActionResult> Order()
         {
-            var id = 1;
-
+            var res = await _userManager.GetUserAsync(HttpContext.User);
             var UserOR = new OrderModelView()
             {
-                Orders = _or.GetOrderByondeId(id)
+                Orders = _or.GetOrderByondeId(res.Id)
             };
             return View(UserOR);
         }

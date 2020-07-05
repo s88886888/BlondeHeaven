@@ -7,9 +7,6 @@ namespace BlondeHeaven.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public int Age { get; set; }
-
-        public bool Sex { get; set; }
         public List<Comment> Comments { get; set; }
         public List<Commodity> Commoditys { get; set; }
 

@@ -15,6 +15,16 @@ namespace BlondeHeaven.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
+
+                services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+                {
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequiredLength = 1;
+                })
+               .AddDefaultUI(UIFramework.Bootstrap4)
+              .AddEntityFrameworkStores<AppDbContext>();
             });
         }
     }

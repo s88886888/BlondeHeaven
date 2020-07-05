@@ -14,7 +14,7 @@ namespace BlondeHeaven.Controllers
     /// <summary>
     /// 用户控制器
     /// </summary>
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -48,8 +48,6 @@ namespace BlondeHeaven.Controllers
             {
                 UserName = userAddViewModel.UserName,
                 Email = userAddViewModel.Email,
-                Sex = userAddViewModel.Sex,
-                Age = userAddViewModel.Age
             };
 
             var result = await _userManager.CreateAsync(user, userAddViewModel.Password);
@@ -90,9 +88,6 @@ namespace BlondeHeaven.Controllers
 
             user.UserName = userEditViewModel.UserName;
             user.Email = userEditViewModel.Email;
-            user.Sex = userEditViewModel.Sex;
-            user.Age = userEditViewModel.Age;
-
             var result = await _userManager.UpdateAsync(user);
 
             if (result.Succeeded)

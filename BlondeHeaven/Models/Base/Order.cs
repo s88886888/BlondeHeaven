@@ -12,6 +12,6 @@ namespace BlondeHeaven.Models
         [ForeignKey(nameof(ShopKeeper))]
         public int ShopKeeperId { get; set; }
         public int CommodityId { get; set; }
-        public int UserId { get; set; }
+        public string ApplicationUserId { get; set; }
     }
 }
