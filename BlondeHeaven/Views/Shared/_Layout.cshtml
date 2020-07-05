@@ -6,7 +6,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>使用模板 @ViewBag.Title</title>
+    <title> @ViewBag.Title</title>
     <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="~/content/site.css" rel="stylesheet" />
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
@@ -38,13 +38,12 @@
                     <li><a asp-controller="Shop" asp-action="Index" class="navbar-brand">不正经的理发店</a></li>
                     <li><a asp-controller="Shop" asp-action="Index">意见反馈</a></li>
                     <li><a asp-controller="personal" asp-action="Index">个人中心</a></li>
-                    <li><a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">用户管理</a></li>
-                    <li> <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">角色管理</a></li>
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
         </div>
     </nav>
+
 
     <div class="container">
         <partial name="_CookieConsentPartial" />

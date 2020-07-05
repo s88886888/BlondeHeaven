@@ -2,7 +2,9 @@
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace BlondeHeaven.Controllers
 {
@@ -11,10 +13,12 @@ namespace BlondeHeaven.Controllers
     {
         private IShopKeeperRepository _db;
         private ICommodityRepository _com;
-        public ShopController(IShopKeeperRepository db, ICommodityRepository com)
+        private UserManager<ApplicationUser> _userManager;
+        public ShopController(IShopKeeperRepository db, ICommodityRepository com, UserManager<ApplicationUser> userManager)
         {
             _db = db;
             _com = com;
+            _userManager = userManager;
         }
         public ActionResult Index()
         {
@@ -25,7 +29,7 @@ namespace BlondeHeaven.Controllers
             };
             return View(viewModel);
         }
-         [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         // GET: ShopController1/Details/5
         public ActionResult Details(int id, ShopViewModel shopViewModel)
         {
@@ -47,26 +51,39 @@ namespace BlondeHeaven.Controllers
         // POST: ShopController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ShopViewModel ShopViewModel)
+        public async Task<ActionResult> Create(ShopViewModel ShopViewModel)
         {
 
+            //动态获取当前登入用户信息
+            var res = await _userManager.GetUserAsync(HttpContext.User);
+
             ShopKeeper shop = new ShopKeeper();
-            ShopViewModel.Name = shop.Name;
-            ShopViewModel.Phone = shop.Phone;
-            ShopViewModel.Photo = shop.Photo;
-            ShopViewModel.Sales = shop.Sales;
-            ShopViewModel.Address = shop.Address;
-            ShopViewModel.UserId = 1;
+
+            
+
+
+
+
+
+
+
+            shop.Name = ShopViewModel.Name;
+            shop.Phone = ShopViewModel.Phone;
+            shop.Photo = ShopViewModel.Photo;
+            shop.Sales = ShopViewModel.Sales;
+            shop.Address = ShopViewModel.Address;
+            shop.ApplicationUserId = res.Id;
             _db.AddAsync(shop);
             return View(ShopViewModel);
         }
 
         // GET: ShopController1/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
             var edit = new ShopViewModel();
+            var res = await _userManager.GetUserAsync(HttpContext.User);
             edit.Id = id;
-            edit.UserId = 1;
+            edit.UserId = res.Id;
             var shop = _db.GetShopKeeperleById(id);
             edit.Name = shop.Name;
             edit.Phone = shop.Phone;
@@ -79,12 +96,14 @@ namespace BlondeHeaven.Controllers
         // POST: ShopController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ShopViewModel ShopViewModel)
+        public async Task<ActionResult> Edit(int id, ShopViewModel ShopViewModel)
         {
+            var res = await _userManager.GetUserAsync(HttpContext.User);
 
             ShopKeeper shop = new ShopKeeper();
+
             shop.Id = ShopViewModel.Id;
-            shop.UserId = 1;
+            shop.ApplicationUserId = res.Id;
             shop.Name = ShopViewModel.Name;
             shop.Phone = ShopViewModel.Phone;
             shop.Photo = ShopViewModel.Photo;
@@ -102,7 +121,7 @@ namespace BlondeHeaven.Controllers
             shopViewModel.Name = shop.Name;
             shopViewModel.Phone = shop.Phone;
             shopViewModel.Sales = shop.Sales;
-            shopViewModel.UserId = shop.UserId;
+            shopViewModel.UserId = shop.ApplicationUserId;
             shopViewModel.Id = shop.Id;
             shopViewModel.Sales = shop.Sales;
             shopViewModel.Address = shop.Address;
