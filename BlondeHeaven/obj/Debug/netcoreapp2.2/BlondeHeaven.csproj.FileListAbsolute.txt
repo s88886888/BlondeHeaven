@@ -43,7 +43,6 @@ C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\bin\Debug\n
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\bin\Debug\netcoreapp2.2\BlondeHeaven.Views.dll
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\bin\Debug\netcoreapp2.2\BlondeHeaven.Views.pdb
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.TagHelpers.input.cache
-C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.TagHelpers.output.cache
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.Views.pdb
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.dll
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.pdb
@@ -99,3 +98,4 @@ C:\Users\大大卷泡泡乐\Desktop\QAQ\BlondeHeaven2.0\BlondeHeaven\obj\Debug\n
 C:\Users\大大卷泡泡乐\Desktop\QAQ\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.csproj.CopyComplete
 C:\Users\大大卷泡泡乐\Desktop\QAQ\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\QAQ\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.csprojAssemblyReference.cache
+C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs

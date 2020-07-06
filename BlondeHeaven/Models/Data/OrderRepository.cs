@@ -53,6 +53,12 @@ namespace BlondeHeaven.Models
             return shop;
         }
 
+        public List<Order> GetOrderByUserId(int id)
+        {
+            var shop = GetAllOrder().Where(m => m.Id == id).ToList();
+            return shop;
+        }
+
         public void Remo(int id)
         {
             var shop = GetOrderById(id);

@@ -41,6 +41,12 @@ namespace BlondeHeaven.Models
 
             return GetAllCommodity().FirstOrDefault(m => m.Id == id);
         }
+        public Commodity GetCommodityByUserId(string id)
+        {
+
+            return GetAllCommodity().FirstOrDefault(m => m.ApplicationUserId == id);
+        }
+
         public List<Commodity> GetCommodityByoneId(int id)
         {
 

@@ -32,5 +32,10 @@ namespace BlondeHeaven.Model
         [ForeignKey(nameof(ShopKeeper))]
         public int ShopKeeperId { get; set; }
 
+
+        public string ApplicationUserId { get; set; }
+
+
+
     }
 }

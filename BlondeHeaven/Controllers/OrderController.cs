@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BlondeHeaven.Models;
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
+using BlondeHeaven.ViewModels.Base;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -29,9 +30,16 @@ namespace BlondeHeaven.Controllers
         }
 
         // GET: OrderController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+
+            var res = await _userManager.GetUserAsync(HttpContext.User);
+            var model = new OrderModelView()
+            {
+                Orders = _db.GetOrderByUserId(id),
+                Commoditys = _com.GetCommodityByoneId(res.Id)
+            };
+            return View(model);
         }
 
 
@@ -40,6 +48,11 @@ namespace BlondeHeaven.Controllers
         {
 
             var res = await _userManager.GetUserAsync(HttpContext.User);
+
+            if (res == null)
+            {
+                return View();
+            }
             var com = _com.GetCommodityById(Id);
             order.UserId = res.Id;
             order.ShopKeepeid = com.ShopKeeperId;
@@ -88,6 +101,9 @@ namespace BlondeHeaven.Controllers
         // GET: OrderController/Delete/5
         public ActionResult Delete(int id)
         {
+
+
+
             return View();
         }
 
