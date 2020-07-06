@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BlondeHeaven.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class QAQDemo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,62 +40,12 @@ namespace BlondeHeaven.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Discriminator = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Feedbacks",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(maxLength: 50, nullable: false),
-                    Email = table.Column<string>(maxLength: 50, nullable: false),
-                    Message = table.Column<string>(maxLength: 400, nullable: false),
-                    CreateDateUTC = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Feedbacks", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Noodles",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    ShortDescription = table.Column<string>(nullable: true),
-                    LongDescription = table.Column<string>(nullable: true),
-                    Price = table.Column<decimal>(nullable: false),
-                    ImageURL = table.Column<string>(nullable: true),
-                    IsInStock = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Noodles", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserShop",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    IsRemo = table.Column<bool>(nullable: false),
-                    DateTime = table.Column<DateTime>(nullable: false),
-                    Phone = table.Column<string>(nullable: true),
-                    PassWrod = table.Column<string>(maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserShop", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -144,8 +94,8 @@ namespace BlondeHeaven.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
                 },
@@ -189,8 +139,8 @@ namespace BlondeHeaven.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -217,21 +167,21 @@ namespace BlondeHeaven.Migrations
                     Photo = table.Column<string>(nullable: true),
                     Phone = table.Column<string>(nullable: true),
                     Sales = table.Column<int>(nullable: false),
-                    UserShopId = table.Column<int>(nullable: false)
+                    ApplicationUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ShopKeepers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ShopKeepers_UserShop_UserShopId",
-                        column: x => x.UserShopId,
-                        principalTable: "UserShop",
+                        name: "FK_ShopKeepers_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Comment",
+                name: "Comments",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -240,13 +190,20 @@ namespace BlondeHeaven.Migrations
                     IsRemo = table.Column<bool>(nullable: false),
                     DateTime = table.Column<DateTime>(nullable: false),
                     Content = table.Column<string>(maxLength: 3000, nullable: false),
-                    ShopKeeperId = table.Column<int>(nullable: false)
+                    ShopKeeperId = table.Column<int>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comment", x => x.Id);
+                    table.PrimaryKey("PK_Comments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Comment_ShopKeepers_ShopKeeperId",
+                        name: "FK_Comments_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Comments_ShopKeepers_ShopKeeperId",
                         column: x => x.ShopKeeperId,
                         principalTable: "ShopKeepers",
                         principalColumn: "Id",
@@ -254,7 +211,7 @@ namespace BlondeHeaven.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Commodity",
+                name: "Commoditys",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -262,16 +219,25 @@ namespace BlondeHeaven.Migrations
                     Name = table.Column<string>(nullable: true),
                     IsRemo = table.Column<bool>(nullable: false),
                     DateTime = table.Column<DateTime>(nullable: false),
+                    Address = table.Column<string>(nullable: true),
                     CreateCommodity = table.Column<DateTime>(nullable: false),
                     Price = table.Column<double>(nullable: false),
                     Photo = table.Column<string>(nullable: true),
-                    ShopKeeperId = table.Column<int>(nullable: false)
+                    ShopKeeperId = table.Column<int>(nullable: false),
+                    ShopKeeperName = table.Column<string>(nullable: true),
+                    ApplicationUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Commodity", x => x.Id);
+                    table.PrimaryKey("PK_Commoditys", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Commodity_ShopKeepers_ShopKeeperId",
+                        name: "FK_Commoditys_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Commoditys_ShopKeepers_ShopKeeperId",
                         column: x => x.ShopKeeperId,
                         principalTable: "ShopKeepers",
                         principalColumn: "Id",
@@ -279,7 +245,7 @@ namespace BlondeHeaven.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Order",
+                name: "Orders",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -287,36 +253,26 @@ namespace BlondeHeaven.Migrations
                     Name = table.Column<string>(nullable: true),
                     IsRemo = table.Column<bool>(nullable: false),
                     DateTime = table.Column<DateTime>(nullable: false),
+                    Address = table.Column<string>(nullable: true),
                     Price = table.Column<double>(nullable: false),
-                    ShopKeeperId = table.Column<int>(nullable: false)
+                    Remarks = table.Column<string>(nullable: true),
+                    ShopKeeperName = table.Column<string>(nullable: true),
+                    CommodityName = table.Column<string>(nullable: true),
+                    ShopKeeperId = table.Column<int>(nullable: false),
+                    CommodityId = table.Column<int>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Order", x => x.Id);
+                    table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Order_ShopKeepers_ShopKeeperId",
-                        column: x => x.ShopKeeperId,
-                        principalTable: "ShopKeepers",
+                        name: "FK_Orders_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Ranking",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    IsRemo = table.Column<bool>(nullable: false),
-                    DateTime = table.Column<DateTime>(nullable: false),
-                    ShopKeeperId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ranking", x => x.Id);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Ranking_ShopKeepers_ShopKeeperId",
+                        name: "FK_Orders_ShopKeepers_ShopKeeperId",
                         column: x => x.ShopKeeperId,
                         principalTable: "ShopKeepers",
                         principalColumn: "Id",
@@ -363,29 +319,39 @@ namespace BlondeHeaven.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comment_ShopKeeperId",
-                table: "Comment",
+                name: "IX_Comments_ApplicationUserId",
+                table: "Comments",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Comments_ShopKeeperId",
+                table: "Comments",
                 column: "ShopKeeperId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Commodity_ShopKeeperId",
-                table: "Commodity",
+                name: "IX_Commoditys_ApplicationUserId",
+                table: "Commoditys",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Commoditys_ShopKeeperId",
+                table: "Commoditys",
                 column: "ShopKeeperId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Order_ShopKeeperId",
-                table: "Order",
+                name: "IX_Orders_ApplicationUserId",
+                table: "Orders",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_ShopKeeperId",
+                table: "Orders",
                 column: "ShopKeeperId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ranking_ShopKeeperId",
-                table: "Ranking",
-                column: "ShopKeeperId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ShopKeepers_UserShopId",
+                name: "IX_ShopKeepers_ApplicationUserId",
                 table: "ShopKeepers",
-                column: "UserShopId");
+                column: "ApplicationUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -406,34 +372,22 @@ namespace BlondeHeaven.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Comment");
+                name: "Comments");
 
             migrationBuilder.DropTable(
-                name: "Commodity");
+                name: "Commoditys");
 
             migrationBuilder.DropTable(
-                name: "Feedbacks");
-
-            migrationBuilder.DropTable(
-                name: "Noodles");
-
-            migrationBuilder.DropTable(
-                name: "Order");
-
-            migrationBuilder.DropTable(
-                name: "Ranking");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "ShopKeepers");
 
             migrationBuilder.DropTable(
-                name: "UserShop");
+                name: "AspNetUsers");
         }
     }
 }

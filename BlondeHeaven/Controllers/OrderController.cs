@@ -9,6 +9,7 @@ using BlondeHeaven.ViewModels.Base;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NPOI.SS.Formula.Functions;
 
 namespace BlondeHeaven.Controllers
 {
@@ -30,15 +31,10 @@ namespace BlondeHeaven.Controllers
         }
 
         // GET: OrderController/Details/5
-        public async Task<ActionResult> Details(int id)
+        public ActionResult Details(int id)
         {
-
-            var res = await _userManager.GetUserAsync(HttpContext.User);
-            var model = new OrderModelView()
-            {
-                Orders = _db.GetOrderByUserId(id),
-                Commoditys = _com.GetCommodityByoneId(res.Id)
-            };
+            var model = new OrderModelView();
+            model.Orders = _db.GetOrderByUserId(id);
             return View(model);
         }
 
@@ -53,11 +49,18 @@ namespace BlondeHeaven.Controllers
             {
                 return View();
             }
+
             var com = _com.GetCommodityById(Id);
+
             order.UserId = res.Id;
             order.ShopKeepeid = com.ShopKeeperId;
             order.CommodityId = com.Id;
+            order.CommodityName = com.Name;
+            order.ShopKeeperName = com.ShopKeeperName;
+            order.Address = com.Address;
             order.Price = com.Price;
+            order.Address = com.Address;
+            order.CreateCommodity = com.CreateCommodity;
             return View(order);
         }
 
@@ -67,12 +70,23 @@ namespace BlondeHeaven.Controllers
         public ActionResult Create(OrderViewModel orderViewModel)
         {
             Order order = new Order();
-            order.Name = orderViewModel.Name;
+            order.Address = orderViewModel.Address;
             order.Price = orderViewModel.Price;
+            order.Remarks = orderViewModel.Remarks;
+            order.Phone = orderViewModel.Phone;
+
+
+
+            order.CreateCommodity = orderViewModel.CreateCommodity;
+            order.ShopKeeperName = orderViewModel.ShopKeeperName;
+            order.CommodityName = orderViewModel.CommodityName;
             order.Name = orderViewModel.Name;
+            order.Name = orderViewModel.Name;
+
             order.ShopKeeperId = orderViewModel.ShopKeepeid;
             order.CommodityId = orderViewModel.CommodityId;
             order.ApplicationUserId = orderViewModel.UserId;
+
             _db.Add(order);
             return View();
         }

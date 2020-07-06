@@ -12,12 +12,12 @@ namespace BlondeHeaven.Model
         /// <summary>
         /// 商品表
         /// </summary>
-        /// 
 
-        /////商品名字
-        //public string Name { get; set; }
 
-        ///创建商品时间
+
+        public string Address { get; set; }
+
+        ///创建预约时间
         public DateTime CreateCommodity { get; set; }
         /// <summary>
         /// 商品价格
@@ -32,7 +32,7 @@ namespace BlondeHeaven.Model
         [ForeignKey(nameof(ShopKeeper))]
         public int ShopKeeperId { get; set; }
 
-
+        public string ShopKeeperName { get; set; }
         public string ApplicationUserId { get; set; }
 
 

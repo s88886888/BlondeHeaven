@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlondeHeaven.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200704134447_AQAQAQAQA")]
-    partial class AQAQAQAQA
+    [Migration("20200706175700_QAQDemo")]
+    partial class QAQDemo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,6 +56,8 @@ namespace BlondeHeaven.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address");
+
                     b.Property<string>("ApplicationUserId");
 
                     b.Property<DateTime>("CreateCommodity");
@@ -72,6 +74,8 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<int>("ShopKeeperId");
 
+                    b.Property<string>("ShopKeeperName");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationUserId");
@@ -87,9 +91,13 @@ namespace BlondeHeaven.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address");
+
                     b.Property<string>("ApplicationUserId");
 
                     b.Property<int>("CommodityId");
+
+                    b.Property<string>("CommodityName");
 
                     b.Property<DateTime>("DateTime");
 
@@ -99,9 +107,11 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<double>("Price");
 
+                    b.Property<string>("Remarks");
+
                     b.Property<int>("ShopKeeperId");
 
-                    b.Property<int>("UserId");
+                    b.Property<string>("ShopKeeperName");
 
                     b.HasKey("Id");
 
@@ -310,10 +320,6 @@ namespace BlondeHeaven.Migrations
             modelBuilder.Entity("BlondeHeaven.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<int>("Age");
-
-                    b.Property<bool>("Sex");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });

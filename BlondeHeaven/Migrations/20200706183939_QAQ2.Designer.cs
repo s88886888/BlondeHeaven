@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlondeHeaven.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200702111507_AQA")]
-    partial class AQA
+    [Migration("20200706183939_QAQ2")]
+    partial class QAQ2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -26,6 +26,8 @@ namespace BlondeHeaven.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -39,13 +41,11 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<int>("ShopKeeperId");
 
-                    b.Property<int?>("UserId");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("ShopKeeperId");
+                    b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ShopKeeperId");
 
                     b.ToTable("Comments");
                 });
@@ -55,6 +55,10 @@ namespace BlondeHeaven.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("ApplicationUserId");
 
                     b.Property<DateTime>("CreateCommodity");
 
@@ -70,13 +74,13 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<int>("ShopKeeperId");
 
-                    b.Property<int?>("UserId");
+                    b.Property<string>("ShopKeeperName");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ShopKeeperId");
+                    b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ShopKeeperId");
 
                     b.ToTable("Commoditys");
                 });
@@ -87,50 +91,39 @@ namespace BlondeHeaven.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address");
+
+                    b.Property<string>("ApplicationUserId");
+
                     b.Property<int>("CommodityId");
+
+                    b.Property<string>("CommodityName");
+
+                    b.Property<DateTime>("CreateCommodity");
 
                     b.Property<DateTime>("DateTime");
 
                     b.Property<bool>("IsRemo");
 
                     b.Property<string>("Name");
+
+                    b.Property<string>("Phone");
 
                     b.Property<double>("Price");
 
-                    b.Property<int?>("ShopKeeperId");
-
-                    b.Property<int?>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CommodityId");
-
-                    b.HasIndex("ShopKeeperId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("BlondeHeaven.Models.Ranking", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateTime");
-
-                    b.Property<bool>("IsRemo");
-
-                    b.Property<string>("Name");
+                    b.Property<string>("Remarks");
 
                     b.Property<int>("ShopKeeperId");
 
+                    b.Property<string>("ShopKeeperName");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("ShopKeeperId");
 
-                    b.ToTable("Rankings");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("BlondeHeaven.Models.ShopKeeper", b =>
@@ -140,6 +133,8 @@ namespace BlondeHeaven.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address");
+
+                    b.Property<string>("ApplicationUserId");
 
                     b.Property<DateTime>("DateTime");
 
@@ -153,93 +148,11 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<int>("Sales");
 
-                    b.Property<int>("UserShopId");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserShopId");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("ShopKeepers");
-                });
-
-            modelBuilder.Entity("BlondeHeaven.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address");
-
-                    b.Property<int>("Age");
-
-                    b.Property<DateTime>("DateTime");
-
-                    b.Property<bool>("IsRemo");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("PassWrod")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasMaxLength(40);
-
-                    b.Property<string>("Photo")
-                        .HasMaxLength(5000);
-
-                    b.Property<bool>("Sex");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Uesrs");
-                });
-
-            modelBuilder.Entity("BlondeHeaven.Models.UserShop", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateTime");
-
-                    b.Property<bool>("IsRemo");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("PassWrod")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Phone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserShops");
-                });
-
-            modelBuilder.Entity("BlondeHeaven.Models.Waiter", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateTime");
-
-                    b.Property<bool>("IsRemo");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Phone");
-
-                    b.Property<string>("Photo");
-
-                    b.Property<bool>("Sex");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Waiters");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -296,6 +209,9 @@ namespace BlondeHeaven.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
@@ -335,6 +251,8 @@ namespace BlondeHeaven.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -359,11 +277,9 @@ namespace BlondeHeaven.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("ProviderKey")
-                        .HasMaxLength(128);
+                    b.Property<string>("ProviderKey");
 
                     b.Property<string>("ProviderDisplayName");
 
@@ -394,11 +310,9 @@ namespace BlondeHeaven.Migrations
                 {
                     b.Property<string>("UserId");
 
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(128);
+                    b.Property<string>("Name");
 
                     b.Property<string>("Value");
 
@@ -407,60 +321,54 @@ namespace BlondeHeaven.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("BlondeHeaven.Models.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
             modelBuilder.Entity("BlondeHeaven.Model.Comment", b =>
                 {
+                    b.HasOne("BlondeHeaven.Models.ApplicationUser")
+                        .WithMany("Comments")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("BlondeHeaven.Models.ShopKeeper", "ShopKeepers")
                         .WithMany("Comments")
                         .HasForeignKey("ShopKeeperId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("BlondeHeaven.Models.User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("BlondeHeaven.Model.Commodity", b =>
                 {
+                    b.HasOne("BlondeHeaven.Models.ApplicationUser")
+                        .WithMany("Commoditys")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("BlondeHeaven.Models.ShopKeeper")
                         .WithMany("Commoditys")
                         .HasForeignKey("ShopKeeperId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("BlondeHeaven.Models.User")
-                        .WithMany("Commoditys")
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("BlondeHeaven.Models.Order", b =>
                 {
-                    b.HasOne("BlondeHeaven.Model.Commodity", "Commoditys")
-                        .WithMany()
-                        .HasForeignKey("CommodityId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("BlondeHeaven.Models.ApplicationUser")
+                        .WithMany("Orders")
+                        .HasForeignKey("ApplicationUserId");
 
                     b.HasOne("BlondeHeaven.Models.ShopKeeper")
                         .WithMany("Orders")
-                        .HasForeignKey("ShopKeeperId");
-
-                    b.HasOne("BlondeHeaven.Models.User")
-                        .WithMany("Orders")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("BlondeHeaven.Models.Ranking", b =>
-                {
-                    b.HasOne("BlondeHeaven.Models.ShopKeeper", "ShopKeepers")
-                        .WithMany("Rankings")
                         .HasForeignKey("ShopKeeperId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("BlondeHeaven.Models.ShopKeeper", b =>
                 {
-                    b.HasOne("BlondeHeaven.Models.UserShop")
-                        .WithMany("ShopKeepers")
-                        .HasForeignKey("UserShopId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("BlondeHeaven.Models.ApplicationUser")
+                        .WithMany("shopKeepers")
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

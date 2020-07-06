@@ -54,6 +54,8 @@ namespace BlondeHeaven.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address");
+
                     b.Property<string>("ApplicationUserId");
 
                     b.Property<DateTime>("CreateCommodity");
@@ -70,6 +72,8 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<int>("ShopKeeperId");
 
+                    b.Property<string>("ShopKeeperName");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationUserId");
@@ -85,9 +89,15 @@ namespace BlondeHeaven.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address");
+
                     b.Property<string>("ApplicationUserId");
 
                     b.Property<int>("CommodityId");
+
+                    b.Property<string>("CommodityName");
+
+                    b.Property<DateTime>("CreateCommodity");
 
                     b.Property<DateTime>("DateTime");
 
@@ -95,9 +105,15 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("Phone");
+
                     b.Property<double>("Price");
 
+                    b.Property<string>("Remarks");
+
                     b.Property<int>("ShopKeeperId");
+
+                    b.Property<string>("ShopKeeperName");
 
                     b.HasKey("Id");
 

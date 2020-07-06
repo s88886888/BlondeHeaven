@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlondeHeaven.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200704133646_QAQAQAQ")]
-    partial class QAQAQAQ
+    [Migration("20200706182447_QAQ")]
+    partial class QAQ
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,6 +56,8 @@ namespace BlondeHeaven.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address");
+
                     b.Property<string>("ApplicationUserId");
 
                     b.Property<DateTime>("CreateCommodity");
@@ -72,6 +74,8 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<int>("ShopKeeperId");
 
+                    b.Property<string>("ShopKeeperName");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationUserId");
@@ -87,9 +91,13 @@ namespace BlondeHeaven.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address");
+
                     b.Property<string>("ApplicationUserId");
 
                     b.Property<int>("CommodityId");
+
+                    b.Property<string>("CommodityName");
 
                     b.Property<DateTime>("DateTime");
 
@@ -97,11 +105,15 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("Phone");
+
                     b.Property<double>("Price");
+
+                    b.Property<string>("Remarks");
 
                     b.Property<int>("ShopKeeperId");
 
-                    b.Property<int>("UserId");
+                    b.Property<string>("ShopKeeperName");
 
                     b.HasKey("Id");
 
@@ -133,8 +145,6 @@ namespace BlondeHeaven.Migrations
                     b.Property<string>("Photo");
 
                     b.Property<int>("Sales");
-
-                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
@@ -312,10 +322,6 @@ namespace BlondeHeaven.Migrations
             modelBuilder.Entity("BlondeHeaven.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<int>("Age");
-
-                    b.Property<bool>("Sex");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });

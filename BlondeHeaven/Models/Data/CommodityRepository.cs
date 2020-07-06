@@ -1,6 +1,7 @@
 ﻿using BlondeHeaven.Model;
 using BlondeHeaven.Models.Interface;
 using Microsoft.EntityFrameworkCore;
+using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,10 +42,11 @@ namespace BlondeHeaven.Models
 
             return GetAllCommodity().FirstOrDefault(m => m.Id == id);
         }
-        public Commodity GetCommodityByUserId(string id)
+        public List<Commodity> GetCommodityByUserId(string id)
         {
 
-            return GetAllCommodity().FirstOrDefault(m => m.ApplicationUserId == id);
+            var com = GetAllCommodity().Where(m => m.ApplicationUserId == id).ToList();
+            return com;
         }
 
         public List<Commodity> GetCommodityByoneId(int id)

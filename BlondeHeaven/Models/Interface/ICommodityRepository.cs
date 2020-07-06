@@ -12,6 +12,7 @@ namespace BlondeHeaven.Models.Interface
 
         Commodity GetCommodityById(int id);
         List<Commodity> GetCommodityByoneId(int id);
+        List<Commodity> GetCommodityByUserId(string id);
         Commodity Add(Commodity model);
         Commodity Edit(Commodity model);
         void Remo(int id);
