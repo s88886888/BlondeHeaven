@@ -99,3 +99,4 @@ C:\Users\大大卷泡泡乐\Desktop\QAQ\BlondeHeaven2.0\BlondeHeaven\obj\Debug\n
 C:\Users\大大卷泡泡乐\Desktop\QAQ\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\QAQ\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.csprojAssemblyReference.cache
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Order\Details.cshtml.g.cs

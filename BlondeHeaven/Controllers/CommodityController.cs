@@ -48,6 +48,7 @@ namespace BlondeHeaven.Controllers
             model.Address = shop.Address;
             model.ShopKeeperName = shop.Name;
             model.ShopKeeperId = id;
+            model.ApplicationUserId = shop.ApplicationUserId;
             return View(model);
         }
 
@@ -64,6 +65,7 @@ namespace BlondeHeaven.Controllers
             com.CreateCommodity = model.CreateCommodity;
             com.ShopKeeperId = model.Id;
             com.ShopKeeperName = model.ShopKeeperName;
+            com.ApplicationUserId = model.ApplicationUserId;
             com.Address = model.Address;
             _db.Add(com);
 

@@ -89,5 +89,23 @@ namespace BlondeHeaven.Controllers
             }
         }
 
+        public async Task<ActionResult> UserShop()
+        {
+            var res = await _userManager.GetUserAsync(HttpContext.User);
+            var com = _com.GetCommodityByUserId(res.Id);
+
+            foreach (var item in com)
+            {
+                var id = item.Id;
+
+                var model = new OrderModelView()
+                {
+                    Orders = _or.GetOrderByUserId(id)
+                };
+                return View(model);
+            }
+            return View();
+        }
+
     }
 }

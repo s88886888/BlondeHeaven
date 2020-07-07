@@ -27,32 +27,6 @@ using BlondeHeaven;
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"184979d09fef8b924246761d6c1c1c5e201d2f82", @"/Views/_ViewImports.cshtml")]
     public class Views_Shop_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<BlondeHeaven.ViewModels.ShopModelView>
     {
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "shop", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Details", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_2 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Delete", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_3 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Commodity", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_4 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_5 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Order", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_6 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-        #line hidden
-        #pragma warning disable 0169
-        private string __tagHelperStringValueBuffer;
-        #pragma warning restore 0169
-        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;
-        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner __tagHelperRunner = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner();
-        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __backed__tagHelperScopeManager = null;
-        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __tagHelperScopeManager
-        {
-            get
-            {
-                if (__backed__tagHelperScopeManager == null)
-                {
-                    __backed__tagHelperScopeManager = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager(StartTagHelperWritingScope, EndTagHelperWritingScope);
-                }
-                return __backed__tagHelperScopeManager;
-            }
-        }
-        private global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -91,82 +65,28 @@ WriteAttributeValue("", 353, noodle.Photo, 353, 13, false);
 #line default
 #line hidden
             EndContext();
-            BeginContext(509, 49, true);
-            WriteLiteral("</h3>\r\n                <h3>\r\n                    ");
+            BeginContext(509, 118, true);
+            WriteLiteral("</h3>\r\n                <h3>\r\n                    <a asp-controller=\"shop\"\r\n                       asp-action=\"Details\"");
             EndContext();
-            BeginContext(558, 126, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "549627584ad8837f4dbba3d16ddce5ac13bcbcc56965", async() => {
-                BeginContext(678, 2, true);
-                WriteLiteral("详细");
-                EndContext();
-            }
-            );
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
-            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Controller = (string)__tagHelperAttribute_0.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_0);
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Action = (string)__tagHelperAttribute_1.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_1);
-            if (__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues == null)
-            {
-                throw new InvalidOperationException(InvalidTagHelperIndexerAssignment("asp-route-id", "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper", "RouteValues"));
-            }
-            BeginWriteTagHelperAttribute();
+            BeginWriteAttribute("asp-route-id", "\r\n                       asp-route-id=\"", 627, "\"", 676, 1);
 #line 26 "C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\Views\Shop\Details.cshtml"
-                         WriteLiteral(noodle.Id);
+WriteAttributeValue("", 666, noodle.Id, 666, 10, false);
 
 #line default
 #line hidden
-            __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"] = __tagHelperStringValueBuffer;
-            __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-id", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndWriteAttribute();
+            BeginContext(677, 142, true);
+            WriteLiteral(">详细</a>\r\n                </h3>\r\n                <h3>\r\n                    <a asp-controller=\"shop\"\r\n                       asp-action=\"Delete\"");
             EndContext();
-            BeginContext(684, 67, true);
-            WriteLiteral("\r\n                </h3>\r\n                <h3>\r\n                    ");
-            EndContext();
-            BeginContext(751, 125, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "549627584ad8837f4dbba3d16ddce5ac13bcbcc59554", async() => {
-                BeginContext(870, 2, true);
-                WriteLiteral("删除");
-                EndContext();
-            }
-            );
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
-            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Controller = (string)__tagHelperAttribute_0.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_0);
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Action = (string)__tagHelperAttribute_2.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
-            if (__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues == null)
-            {
-                throw new InvalidOperationException(InvalidTagHelperIndexerAssignment("asp-route-id", "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper", "RouteValues"));
-            }
-            BeginWriteTagHelperAttribute();
+            BeginWriteAttribute("asp-route-id", "\r\n                       asp-route-id=\"", 819, "\"", 868, 1);
 #line 31 "C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\Views\Shop\Details.cshtml"
-                         WriteLiteral(noodle.Id);
+WriteAttributeValue("", 858, noodle.Id, 858, 10, false);
 
 #line default
 #line hidden
-            __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"] = __tagHelperStringValueBuffer;
-            __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-id", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            EndContext();
-            BeginContext(876, 44, true);
-            WriteLiteral("\r\n                </h3>\r\n                <p>");
+            EndWriteAttribute();
+            BeginContext(869, 51, true);
+            WriteLiteral(">删除</a>\r\n                </h3>\r\n                <p>");
             EndContext();
             BeginContext(921, 12, false);
 #line 33 "C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\Views\Shop\Details.cshtml"
@@ -178,45 +98,18 @@ WriteAttributeValue("", 353, noodle.Photo, 353, 13, false);
             BeginContext(933, 85, true);
             WriteLiteral("</p>\r\n                <h3>我是店铺</h3>\r\n            </div>\r\n        </div>\r\n    </div>\r\n");
             EndContext();
-            BeginContext(1020, 37, true);
-            WriteLiteral("    <div>\r\n        <h3>\r\n            ");
+            BeginContext(1020, 102, true);
+            WriteLiteral("    <div>\r\n        <h3>\r\n            <a asp-controller=\"Commodity\"\r\n               asp-action=\"Create\"");
             EndContext();
-            BeginContext(1057, 119, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "549627584ad8837f4dbba3d16ddce5ac13bcbcc512688", async() => {
-                BeginContext(1165, 7, true);
-                WriteLiteral(" 点我增加商品");
-                EndContext();
-            }
-            );
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
-            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Controller = (string)__tagHelperAttribute_3.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_3);
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Action = (string)__tagHelperAttribute_4.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_4);
-            if (__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues == null)
-            {
-                throw new InvalidOperationException(InvalidTagHelperIndexerAssignment("asp-route-id", "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper", "RouteValues"));
-            }
-            BeginWriteTagHelperAttribute();
+            BeginWriteAttribute("asp-route-id", "\r\n               asp-route-id=\"", 1122, "\"", 1163, 1);
 #line 43 "C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\Views\Shop\Details.cshtml"
-                 WriteLiteral(noodle.Id);
+WriteAttributeValue("", 1153, noodle.Id, 1153, 10, false);
 
 #line default
 #line hidden
-            __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"] = __tagHelperStringValueBuffer;
-            __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-id", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            EndContext();
-            BeginContext(1176, 29, true);
-            WriteLiteral("\r\n        </h3>\r\n    </div>\r\n");
+            EndWriteAttribute();
+            BeginContext(1164, 41, true);
+            WriteLiteral("> 点我增加商品</a>\r\n        </h3>\r\n    </div>\r\n");
             EndContext();
 #line 46 "C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\Views\Shop\Details.cshtml"
 }
@@ -252,45 +145,18 @@ WriteAttributeValue("", 1344, feedback.Photo, 1344, 15, false);
 #line default
 #line hidden
             EndContext();
-            BeginContext(1432, 41, true);
-            WriteLiteral("</h5>\r\n            <h3>\r\n                ");
+            BeginContext(1432, 106, true);
+            WriteLiteral("</h5>\r\n            <h3>\r\n                <a asp-controller=\"Order\"\r\n                   asp-action=\"Create\"");
             EndContext();
-            BeginContext(1473, 122, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "549627584ad8837f4dbba3d16ddce5ac13bcbcc516711", async() => {
-                BeginContext(1587, 4, true);
-                WriteLiteral("点我下单");
-                EndContext();
-            }
-            );
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
-            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Controller = (string)__tagHelperAttribute_5.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_5);
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Action = (string)__tagHelperAttribute_4.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_4);
-            if (__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues == null)
-            {
-                throw new InvalidOperationException(InvalidTagHelperIndexerAssignment("asp-route-id", "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper", "RouteValues"));
-            }
-            BeginWriteTagHelperAttribute();
+            BeginWriteAttribute("asp-route-id", "\r\n                   asp-route-id=\"", 1538, "\"", 1585, 1);
 #line 58 "C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\Views\Shop\Details.cshtml"
-                     WriteLiteral(feedback.Id);
+WriteAttributeValue("", 1573, feedback.Id, 1573, 12, false);
 
 #line default
 #line hidden
-            __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"] = __tagHelperStringValueBuffer;
-            __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-id", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            EndContext();
-            BeginContext(1595, 65, true);
-            WriteLiteral("\r\n            </h3>\r\n            <p class=\"list-group-item-text\">");
+            EndWriteAttribute();
+            BeginContext(1586, 74, true);
+            WriteLiteral(">点我下单</a>\r\n            </h3>\r\n            <p class=\"list-group-item-text\">");
             EndContext();
             BeginContext(1661, 14, false);
 #line 60 "C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\Views\Shop\Details.cshtml"
@@ -307,30 +173,8 @@ WriteAttributeValue("", 1344, feedback.Photo, 1344, 15, false);
 
 #line default
 #line hidden
-            BeginContext(1704, 21, true);
-            WriteLiteral("\r\n</div>\r\n<div>\r\n    ");
-            EndContext();
-            BeginContext(1725, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "549627584ad8837f4dbba3d16ddce5ac13bcbcc519949", async() => {
-                BeginContext(1747, 12, true);
-                WriteLiteral("Back to List");
-                EndContext();
-            }
-            );
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
-            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);
-            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Action = (string)__tagHelperAttribute_6.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_6);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            EndContext();
-            BeginContext(1763, 10, true);
-            WriteLiteral("\r\n</div>\r\n");
+            BeginContext(1704, 69, true);
+            WriteLiteral("\r\n</div>\r\n<div>\r\n    <a asp-action=\"Index\">Back to List</a>\r\n</div>\r\n");
             EndContext();
         }
         #pragma warning restore 1998

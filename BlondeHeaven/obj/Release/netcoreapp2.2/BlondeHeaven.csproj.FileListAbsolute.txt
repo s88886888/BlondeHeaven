@@ -61,12 +61,10 @@ C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\bin\Release
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\bin\Release\netcoreapp2.2\BlondeHeaven.Views.pdb
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.AssemblyInfoInputs.cache
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.AssemblyInfo.cs
-C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.csproj.CoreCompileInputs.cache
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.RazorAssemblyInfo.cache
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.RazorAssemblyInfo.cs
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.TagHelpers.input.cache
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.RazorCoreGenerate.cache
-C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Commodity\Create.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Order\Create.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Order\Index.cshtml.g.cs
@@ -100,3 +98,6 @@ C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.csproj.CopyComplete
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Order\Details.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.csprojAssemblyReference.cache
+C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.csproj.CoreCompileInputs.cache
+C:\Users\大大卷泡泡乐\Desktop\0.0\BlondeHeaven2.0\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Personal\UserShop.cshtml.g.cs

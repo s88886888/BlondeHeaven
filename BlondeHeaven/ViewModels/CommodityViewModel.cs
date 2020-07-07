@@ -24,5 +24,7 @@ namespace BlondeHeaven.ViewModels
         public int ShopKeeperId { get; set; }
         public string ShopKeeperName { get; set; }
         public string Address { get; set; }
+        public string ApplicationUserId { get; set; }
+
     }
 }

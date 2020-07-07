@@ -32,6 +32,11 @@ namespace BlondeHeaven
             });
 
 
+
+
+
+
+
             //每次发起请求都创建一个新的仓库，请求结束后自动注销
             //在系统创建时仅创建一个仓库，每次处理请求都使用同一个
             //将一系列请求整合到一个事务中
@@ -44,7 +49,15 @@ namespace BlondeHeaven
 
 
             //身份验证
-          
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 1;
+            })
+         .AddDefaultUI()
+        .AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

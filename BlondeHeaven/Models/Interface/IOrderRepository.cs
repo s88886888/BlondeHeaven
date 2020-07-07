@@ -11,6 +11,7 @@ namespace BlondeHeaven.Models.Interface
 
         Order GetOrderById(int id);
         List<Order> GetOrderByUserId(int id);
+        List<Order> GetOrderByShopId(int id);
         List<Order> GetOrderByondeId(string id);
         Order Add(Order model);
         Order Edit(Order model);

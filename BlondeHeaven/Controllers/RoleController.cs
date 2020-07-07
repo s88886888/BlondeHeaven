@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlondeHeaven.Controllers
 {
-    [Authorize(Roles="Admin")]
+    //[Authorize(Roles="Admin")]
     public class RoleController : Controller
     {
 

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "KtDPg/3HNDF1midCLGasNQNeca4yLiCMd2x0NucWo+fONEn3tJ9qkhQnfaLCIrFKFXQx3byjVmlzLeMxbMZERQ==",
+  "dgSpecHash": "eqIwUlP1lrOdad9wolDk12lOOt905UklFRNZtJcALFUdso12tzOsKq3v4jpBQCKQsfMLWt4tk2gK3pMMQfGcng==",
   "success": true,
   "projectFilePath": "C:\\Users\\大大卷泡泡乐\\Desktop\\0.0\\BlondeHeaven2.0\\BlondeHeaven\\BlondeHeaven.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\bootstrap\\4.0.0\\bootstrap.4.0.0.nupkg.sha512",
+    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
@@ -194,6 +196,7 @@
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\2.1.0\\pomelo.entityframeworkcore.mysql.2.1.0.nupkg.sha512",
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\pomelo.jsonobject\\1.1.1\\pomelo.jsonobject.1.1.1.nupkg.sha512",
+    "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\popper.js\\1.12.9\\popper.js.1.12.9.nupkg.sha512",
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\portable.bouncycastle\\1.8.6\\portable.bouncycastle.1.8.6.nupkg.sha512",
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\remotion.linq\\2.2.0\\remotion.linq.2.2.0.nupkg.sha512",
     "C:\\Users\\大大卷泡泡乐\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

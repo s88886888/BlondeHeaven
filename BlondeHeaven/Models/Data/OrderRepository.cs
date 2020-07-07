@@ -52,6 +52,12 @@ namespace BlondeHeaven.Models
             var shop = GetAllOrder().Where(m => m.ApplicationUserId == id).ToList();
             return shop;
         }
+        public List<Order> GetOrderByShopId(int id)
+        {
+
+            var shop = GetAllOrder().Where(m => m.CommodityId == id).ToList();
+            return shop;
+        }
 
         public List<Order> GetOrderByUserId(int id)
         {
@@ -62,7 +68,7 @@ namespace BlondeHeaven.Models
         public void Remo(int id)
         {
             var shop = GetOrderById(id);
-            shop.IsRemo = true; 
+            shop.IsRemo = true;
             _m_context.Entry(shop).State = EntityState.Modified;
             _m_context.SaveChanges();
         }
