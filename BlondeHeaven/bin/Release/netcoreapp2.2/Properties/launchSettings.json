@@ -15,13 +15,8 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "LanZhouBeefNoodles": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    "BlondeHeaven": {
+      "commandName": "IISExpress"
     }
   }
 }
