@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlondeHeaven.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200706182447_QAQ")]
+    [Migration("20200708095921_QAQ")]
     partial class QAQ
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -99,7 +99,11 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<string>("CommodityName");
 
+                    b.Property<DateTime>("CreateCommodity");
+
                     b.Property<DateTime>("DateTime");
+
+                    b.Property<string>("Email");
 
                     b.Property<bool>("IsRemo");
 

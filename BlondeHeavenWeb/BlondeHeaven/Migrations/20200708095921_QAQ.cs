@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BlondeHeaven.Migrations
 {
-    public partial class QAQDemo : Migration
+    public partial class QAQ : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -255,6 +255,9 @@ namespace BlondeHeaven.Migrations
                     DateTime = table.Column<DateTime>(nullable: false),
                     Address = table.Column<string>(nullable: true),
                     Price = table.Column<double>(nullable: false),
+                    Phone = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    CreateCommodity = table.Column<DateTime>(nullable: false),
                     Remarks = table.Column<string>(nullable: true),
                     ShopKeeperName = table.Column<string>(nullable: true),
                     CommodityName = table.Column<string>(nullable: true),
