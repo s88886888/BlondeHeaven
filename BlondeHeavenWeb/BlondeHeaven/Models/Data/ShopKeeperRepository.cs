@@ -40,8 +40,8 @@ namespace BlondeHeaven.Models
         public ShopKeeper GetShopKeeperleById(int id)
         {
 
-            var shop = GetAllShopKeepers().FirstOrDefault(m => m.Id == id);
-            return shop;
+            return GetAllShopKeepers().FirstOrDefault(m => m.Id == id);
+
         }
         public List<ShopKeeper> GetShopKeeperleByIdall(int id)
         {

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace BlondeHeaven.Controllers
-{ 
+{
     public class ShopController : Controller
     {
         private IShopKeeperRepository _db;
@@ -24,7 +24,6 @@ namespace BlondeHeaven.Controllers
             var viewModel = new ShopModelView()
             {
                 ShopKeepers = _db.GetAllShopKeepers(),
-
             };
             return View(viewModel);
         }
@@ -34,13 +33,13 @@ namespace BlondeHeaven.Controllers
             var viewModel = new ShopModelView()
             {
                 ShopKeepers = _db.GetShopKeeperleByIdall(id),
-                Commoditys = _com.GetCommodityByoneId(id)
+                Commoditys = _com.GetCommodityBListId(id)
             };
 
 
             return View(viewModel);
         }
-        [Authorize(Roles ="AdminShop")]
+        [Authorize(Roles = "AdminShop")]
         // GET: ShopController1/Create
         public ActionResult Create()
         {
@@ -55,65 +54,48 @@ namespace BlondeHeaven.Controllers
             //动态获取当前登入用户信息
             var res = await _userManager.GetUserAsync(HttpContext.User);
             ShopKeeper shop = new ShopKeeper();
-            shop.Name = ShopViewModel.Name;
-            shop.Phone = ShopViewModel.Phone;
-            shop.Photo = ShopViewModel.Photo;
-            shop.Sales = ShopViewModel.Sales;
-            shop.Address = ShopViewModel.Address;
-            shop.ApplicationUserId = res.Id;
+            ShopData(ShopViewModel, res, shop);
             _db.AddAsync(shop);
             return View(ShopViewModel);
         }
+
         [Authorize(Roles = "AdminShop")]
         // GET: ShopController1/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
-            var edit = new ShopViewModel();
-            var res = await _userManager.GetUserAsync(HttpContext.User);
-            edit.Id = id;
-            edit.UserId = res.Id;
+            var model = new ShopViewModel();
             var shop = _db.GetShopKeeperleById(id);
-            edit.Name = shop.Name;
-            edit.Phone = shop.Phone;
-            edit.Sales = shop.Sales;
-            edit.Sales = shop.Sales;
-            edit.Address = shop.Address;
-            return View(edit);
+            var res = await _userManager.GetUserAsync(HttpContext.User);
+            ModelData(id, model, shop, res);
+
+            return View(model);
         }
+
+
+
         [Authorize(Roles = "AdminShop")]
         // POST: ShopController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, ShopViewModel ShopViewModel)
+        public async Task<ActionResult> Edit(ShopViewModel model)
         {
             var res = await _userManager.GetUserAsync(HttpContext.User);
-
             ShopKeeper shop = new ShopKeeper();
-
-            shop.Id = ShopViewModel.Id;
-            shop.ApplicationUserId = res.Id;
-            shop.Name = ShopViewModel.Name;
-            shop.Phone = ShopViewModel.Phone;
-            shop.Photo = ShopViewModel.Photo;
-            shop.Sales = ShopViewModel.Sales;
-            shop.Address = ShopViewModel.Address;
+            ShopData(model, res, shop);
             _db.EditAsync(shop);
             return View();
         }
 
         [Authorize(Roles = "AdminShop")]
         // GET: ShopController1/Delete/5
-        public ActionResult Delete(int id, ShopViewModel shopViewModel)
+        public async Task<ActionResult> Delete(int id, ShopViewModel model)
         {
+            //动态获取当前登入用户信息
+            var res = await _userManager.GetUserAsync(HttpContext.User);
             var shop = _db.GetShopKeeperleById(id);
-            shopViewModel.Name = shop.Name;
-            shopViewModel.Phone = shop.Phone;
-            shopViewModel.Sales = shop.Sales;
-            shopViewModel.UserId = shop.ApplicationUserId;
-            shopViewModel.Id = shop.Id;
-            shopViewModel.Sales = shop.Sales;
-            shopViewModel.Address = shop.Address;
-            return View(shopViewModel);
+            ModelData(id, model, shop, res);
+            model.Id = id;
+            return View(model);
         }
 
         // POST: ShopController1/Delete/5
@@ -121,8 +103,36 @@ namespace BlondeHeaven.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
+
             _db.Remo(id);
             return RedirectToAction("index", "shop");
+        }
+
+
+
+
+
+
+        private static void ShopData(ShopViewModel Model, ApplicationUser res, ShopKeeper shop)
+        {
+            shop.Name = Model.Name;
+            shop.Phone = Model.Phone;
+            shop.Photo = Model.Photo;
+            shop.Sales = Model.Sales;
+            shop.Address = Model.Address;
+            shop.ApplicationUserId = res.Id;
+        }
+
+        private static void ModelData(int id, ShopViewModel model, ShopKeeper shop, ApplicationUser res)
+        {
+
+            model.Id = id;
+            model.ApplicationUserId = res.Id;
+            model.Name = shop.Name;
+            model.Phone = shop.Phone;
+            model.Sales = shop.Sales;
+            model.Sales = shop.Sales;
+            model.Address = shop.Address;
         }
     }
 }

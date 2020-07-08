@@ -7,14 +7,53 @@ namespace BlondeHeaven.Models.Interface
 {
   public  interface IOrderRepository
     {
-        List<Order> GetAllShopKeepers();
 
+        /// <summary>
+        /// 查询所有的订单
+        /// </summary>
+        /// <returns></returns>
+        List<Order> GetAllOrder();
+
+        /// <summary>
+        /// 根据订单Id进行查询
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         Order GetOrderById(int id);
-        List<Order> GetOrderByUserId(int id);
-        List<Order> GetOrderByShopId(int id);
-        List<Order> GetOrderByondeId(string id);
+        /// <summary>
+        /// 根据订单id进行查询（集合）
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        List<Order> GetOrderByListId(int id);
+        /// <summary>
+        /// 根据商品Id进行查询订单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        List<Order> GetOrderByCommodityId(int id);
+        /// <summary>
+        /// 根据用户Id进行查询
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        List<Order> GetOrderByUserId(string id);
+        /// <summary>
+        /// 增加
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         Order Add(Order model);
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         Order Edit(Order model);
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
         void Remo(int id);
 
 

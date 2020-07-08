@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlondeHeaven.Model;
+using BlondeHeaven.Models;
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlondeHeaven.Controllers
@@ -14,10 +16,12 @@ namespace BlondeHeaven.Controllers
     {
         private ICommodityRepository _db;
         private IShopKeeperRepository _shop;
-        public CommodityController(ICommodityRepository db, IShopKeeperRepository shop)
+        private UserManager<ApplicationUser> _userManager;
+        public CommodityController(ICommodityRepository db, IShopKeeperRepository shop, UserManager<ApplicationUser> userManager)
         {
             _db = db;
             _shop = shop;
+            _userManager = userManager;
         }
         // GET: CommodityController
         public ActionResult Index()
@@ -30,43 +34,33 @@ namespace BlondeHeaven.Controllers
         {
             CommodityViewModel model = new CommodityViewModel();
             var com = _db.GetCommodityById(id);
-
-            model.Name = com.Name;
-            model.Photo = com.Photo;
-            model.Price = com.Price;
-            model.CreateCommodity = com.CreateCommodity;
-            model.ShopKeeperName = com.ShopKeeperName;
-            model.ShopKeeperId = com.ShopKeeperId;
-            model.Address = com.Address;
+            ComData(model, com);
             return View(model);
         }
+
+
 
         // GET: CommodityController/Create
         public ActionResult Create(int id, CommodityViewModel model)
         {
-            var shop = _shop.GetShopKeeperleById(id);
-            model.Address = shop.Address;
-            model.ShopKeeperName = shop.Name;
             model.ShopKeeperId = id;
-            model.ApplicationUserId = shop.ApplicationUserId;
             return View(model);
         }
 
         // POST: CommodityController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CommodityViewModel model)
+        public async Task<ActionResult> Create(CommodityViewModel model)
         {
-
             Commodity com = new Commodity();
-            com.Name = model.Name;
-            com.Photo = model.Photo;
-            com.Price = model.Price;
-            com.CreateCommodity = model.CreateCommodity;
-            com.ShopKeeperId = model.Id;
-            com.ShopKeeperName = model.ShopKeeperName;
-            com.ApplicationUserId = model.ApplicationUserId;
-            com.Address = model.Address;
+            var res = await _userManager.GetUserAsync(HttpContext.User);
+            var shop = _shop.GetShopKeeperleById(model.Id);
+            model.Address = shop.Address;
+            model.ShopKeeperName = shop.Name;
+            model.ShopKeeperId = shop.Id;
+            model.ApplicationUserId = res.Id;
+            //model.Id = 0;
+            ComData(model, com);
             _db.Add(com);
 
             return RedirectToAction("index", "shop");
@@ -77,13 +71,7 @@ namespace BlondeHeaven.Controllers
         {
             CommodityViewModel model = new CommodityViewModel();
             var com = _db.GetCommodityById(id);
-            model.Name = com.Name;
-            model.Photo = com.Photo;
-            model.Price = com.Price;
-            model.CreateCommodity = com.CreateCommodity;
-            model.ShopKeeperId = com.ShopKeeperId;
-            model.ShopKeeperName = com.ShopKeeperName;
-            model.Address = com.Address;
+            ComData(model, com);
             return View(model);
         }
 
@@ -110,6 +98,18 @@ namespace BlondeHeaven.Controllers
         {
             _db.Remo(id);
             return RedirectToAction("index", "shop");
+        }
+
+        private static void ComData(CommodityViewModel model, Commodity com)
+        {
+            com.Name = model.Name;
+            com.Photo = model.Photo;
+            com.Price = model.Price;
+            com.CreateCommodity = model.CreateCommodity;
+            com.ShopKeeperName = model.ShopKeeperName;
+            com.ShopKeeperId = model.ShopKeeperId;
+            com.Address = model.Address;
+            com.ApplicationUserId = model.ApplicationUserId;
         }
     }
 }

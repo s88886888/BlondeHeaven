@@ -43,7 +43,7 @@ namespace BlondeHeaven.Controllers
             var res = await _userManager.GetUserAsync(HttpContext.User);
             var UserOR = new OrderModelView()
             {
-                Orders = _or.GetOrderByondeId(res.Id)
+                Orders = _or.GetOrderByUserId(res.Id)
             };
             return View(UserOR);
         }
@@ -89,18 +89,26 @@ namespace BlondeHeaven.Controllers
             }
         }
 
+        /// <summary>
+        /// 商家订单中心
+        /// </summary>
+        /// <returns></returns>
+
         public async Task<ActionResult> UserShop()
         {
+            //获取当前登入 用户
             var res = await _userManager.GetUserAsync(HttpContext.User);
+
+            //查询登入用户 创建的商品
             var com = _com.GetCommodityByUserId(res.Id);
 
+
+            //查询所有订单中  关于自己创建的订单
             foreach (var item in com)
             {
-                var id = item.Id;
-
                 var model = new OrderModelView()
                 {
-                    Orders = _or.GetOrderByUserId(id)
+                    Orders = _or.GetOrderByCommodityId(item.Id)
                 };
                 return View(model);
             }

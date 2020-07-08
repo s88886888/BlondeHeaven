@@ -13,6 +13,7 @@ namespace BlondeHeaven.Models
 
         public string Phone { get; set; }
 
+        public string Email { get; set; }
 
         public DateTime CreateCommodity { get; set; }
         public string Remarks { get; set; }

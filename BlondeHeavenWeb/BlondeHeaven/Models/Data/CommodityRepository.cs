@@ -49,7 +49,7 @@ namespace BlondeHeaven.Models
             return com;
         }
 
-        public List<Commodity> GetCommodityByoneId(int id)
+        public List<Commodity> GetCommodityBListId(int id)
         {
 
             var shop = GetAllCommodity().Where(m => m.ShopKeeperId == id).ToList();

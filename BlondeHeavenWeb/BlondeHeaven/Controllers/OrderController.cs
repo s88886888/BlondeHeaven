@@ -34,26 +34,33 @@ namespace BlondeHeaven.Controllers
         public ActionResult Details(int id)
         {
             var model = new OrderModelView();
-            model.Orders = _db.GetOrderByUserId(id);
+            model.Orders = _db.GetOrderByListId(id);
             return View(model);
         }
 
 
         // GET: OrderController/Create
-        public async Task<ActionResult> Create(int Id, OrderViewModel order)
+        public ActionResult Create(int Id, OrderViewModel model)
         {
-
-            var res = await _userManager.GetUserAsync(HttpContext.User);
-
-            if (res == null)
-            {
-                return View();
-            }
-
+            model.Id = Id;
             var com = _com.GetCommodityById(Id);
+            model.ShopKeeperName = com.ShopKeeperName;
+            model.CommodityName = com.ShopKeeperName;
+            model.Address = com.Address;
+            model.CreateCommodity = com.CreateCommodity;
+            return View(model);
+        }
 
-            order.UserId = res.Id;
-            order.ShopKeepeid = com.ShopKeeperId;
+        // POST: OrderController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(OrderViewModel model)
+        {
+            Order order = new Order();
+            var res = await _userManager.GetUserAsync(HttpContext.User);
+            var com = _com.GetCommodityById(model.Id);
+            order.ApplicationUserId = res.Id;
+            order.ShopKeeperId = com.ShopKeeperId;
             order.CommodityId = com.Id;
             order.CommodityName = com.Name;
             order.ShopKeeperName = com.ShopKeeperName;
@@ -61,32 +68,11 @@ namespace BlondeHeaven.Controllers
             order.Price = com.Price;
             order.Address = com.Address;
             order.CreateCommodity = com.CreateCommodity;
-            return View(order);
-        }
-
-        // POST: OrderController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(OrderViewModel orderViewModel)
-        {
-            Order order = new Order();
-            order.Address = orderViewModel.Address;
-            order.Price = orderViewModel.Price;
-            order.Remarks = orderViewModel.Remarks;
-            order.Phone = orderViewModel.Phone;
-
-
-
-            order.CreateCommodity = orderViewModel.CreateCommodity;
-            order.ShopKeeperName = orderViewModel.ShopKeeperName;
-            order.CommodityName = orderViewModel.CommodityName;
-            order.Name = orderViewModel.Name;
-            order.Name = orderViewModel.Name;
-
-            order.ShopKeeperId = orderViewModel.ShopKeepeid;
-            order.CommodityId = orderViewModel.CommodityId;
-            order.ApplicationUserId = orderViewModel.UserId;
-
+            //---------------------------------------------//
+            order.Remarks = model.Remarks;
+            order.Phone = model.Phone;
+            order.Name = model.Name;
+            order.Email = res.Email;
             _db.Add(order);
             return View();
         }

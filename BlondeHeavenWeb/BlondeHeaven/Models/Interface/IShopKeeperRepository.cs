@@ -8,6 +8,10 @@ namespace BlondeHeaven.Models.Interface
 {
     public interface IShopKeeperRepository
     {
+        /// <summary>
+        /// 查询所有商店
+        /// </summary>
+        /// <returns></returns>
         List<ShopKeeper> GetAllShopKeepers();
 
         ShopKeeper GetShopKeeperleById(int id);
