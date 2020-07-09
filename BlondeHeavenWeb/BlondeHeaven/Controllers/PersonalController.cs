@@ -9,6 +9,8 @@ using BlondeHeaven.ViewModels.Base;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite.Internal.IISUrlRewrite;
+using NPOI.SS.Formula.Functions;
 
 namespace BlondeHeaven.Controllers
 {
@@ -98,22 +100,35 @@ namespace BlondeHeaven.Controllers
         {
             //获取当前登入 用户
             var res = await _userManager.GetUserAsync(HttpContext.User);
-
             //查询登入用户 创建的商品
             var com = _com.GetCommodityByUserId(res.Id);
 
+            var lsmodel = new List<OrderViewModel>();
 
-            //查询所有订单中  关于自己创建的订单
             foreach (var item in com)
             {
-                var model = new OrderModelView()
+                var commodel = _or.GetOrderByCommodityId(item.Id);
+                foreach (var order in commodel)
                 {
-                    Orders = _or.GetOrderByCommodityId(item.Id)
-                };
-                return View(model);
-            }
-            return View();
-        }
+                    var ordermodel = new OrderViewModel();
+                    ordermodel.Email = order.Email;
+                    ordermodel.Address = order.Address;
+                    ordermodel.CommodityName = order.CommodityName;
+                    ordermodel.Id = order.Id;
+                    ordermodel.Price = order.Price;
+                    ordermodel.Name = order.Name;
+                    ordermodel.Remarks = order.Remarks;
+                    ordermodel.ShopKeeperName = order.ShopKeeperName;
+                    ordermodel.Phone = order.Phone;
+                    ordermodel.CreateCommodity = order.CreateCommodity;
 
+                    lsmodel.Add(ordermodel);
+                }
+            }
+
+            return View(lsmodel);
+        }
     }
+
 }
+

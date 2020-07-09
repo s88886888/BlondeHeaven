@@ -52,8 +52,8 @@ namespace BlondeHeaven.Models
         public List<Commodity> GetCommodityBListId(int id)
         {
 
-            var shop = GetAllCommodity().Where(m => m.ShopKeeperId == id).ToList();
-            return shop;
+            return GetAllCommodity().Where(m => m.ShopKeeperId == id).ToList();
+
         }
 
         public void Remo(int id)

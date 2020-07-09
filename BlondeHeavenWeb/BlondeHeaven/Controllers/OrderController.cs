@@ -38,16 +38,26 @@ namespace BlondeHeaven.Controllers
             return View(model);
         }
 
-
+        /// <summary>
+        /// 用户下单
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         // GET: OrderController/Create
-        public ActionResult Create(int Id, OrderViewModel model)
+        public async Task<ActionResult> Create(int Id, OrderViewModel model)
         {
+            var res = await _userManager.GetUserAsync(HttpContext.User);
             model.Id = Id;
             var com = _com.GetCommodityById(Id);
             model.ShopKeeperName = com.ShopKeeperName;
-            model.CommodityName = com.ShopKeeperName;
+            model.CommodityName = com.Name;
             model.Address = com.Address;
             model.CreateCommodity = com.CreateCommodity;
+            model.Phone = res.PhoneNumber;
+            model.Email = res.Email;
+            model.Price = com.Price;
+            model.Name = res.UserName;
             return View(model);
         }
 
