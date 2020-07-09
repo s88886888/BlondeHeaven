@@ -59,6 +59,7 @@ namespace BlondeHeaven.Controllers
             model.Price = com.Price;
             model.Name = res.UserName;
             return View(model);
+            //0.0
         }
 
         // POST: OrderController/Create
@@ -85,6 +86,8 @@ namespace BlondeHeaven.Controllers
             order.Email = res.Email;
             _db.Add(order);
             return View();
+            //0.0 动之前问问我---------linson
+
         }
 
         // GET: OrderController/Edit/5
