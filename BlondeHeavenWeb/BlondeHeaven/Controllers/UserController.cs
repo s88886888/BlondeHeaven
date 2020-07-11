@@ -44,20 +44,22 @@ namespace BlondeHeaven.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddUser(UserAddViewModel userAddViewModel)
+        public async Task<IActionResult> AddUser(UserAddViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View(userAddViewModel);
+                return View(model);
             }
 
             var user = new ApplicationUser
             {
-                UserName = userAddViewModel.UserName,
-                Email = userAddViewModel.Email,
+
+                Email = model.Email,
+                UserName = model.UserName,
+
             };
 
-            var result = await _userManager.CreateAsync(user, userAddViewModel.Password);
+            var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
             {
@@ -69,7 +71,7 @@ namespace BlondeHeaven.Controllers
                 ModelState.AddModelError(string.Empty, error.Description);
             }
 
-            return View(userAddViewModel);
+            return View(model);
 
         }
 
@@ -91,13 +93,16 @@ namespace BlondeHeaven.Controllers
             var model = new LoginViewModel { ReturnUrl = returnUrl };
             return View(model);
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var result = await _signManager.PasswordSignInAsync(model.Eamil,
-                   model.Password, model.RememberMe, false);
+
+                var result = await _signManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
+
+
 
                 if (result.Succeeded)
                 {
