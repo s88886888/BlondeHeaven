@@ -20,7 +20,7 @@
                 <li><a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">店铺管理</a></li>
                 <li> <a class="nav-link text-dark" asp-area="" asp-controller="Personal" asp-action="UserShop">店主中心</a></li>
             }
-                <li> <a class="nav-link text-dark" asp-area="" asp-controller="Personal" asp-action="Index">个人中心</a></li>
+            <li> <a class="nav-link text-dark" asp-area="" asp-controller="Personal" asp-action="Index">个人中心</a></li>
             <li>
                 <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
             </li>
@@ -34,7 +34,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="Identity" asp-page="/Account/Register">注册</a></li>
-        <li><a asp-area="Identity" asp-page="/Account/Login">登入</a></li>
+        <li><a asp-controller="User" asp-action="AddUser">注册</a></li>
+        <li><a asp-controller="User" asp-action="Login">登入</a></li>
     </ul>
 }

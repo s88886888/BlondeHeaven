@@ -73,6 +73,18 @@ namespace BlondeHeaven.Controllers
 
         }
 
+
+
+
+        /// <summary>
+        /// 用户注册
+        /// </summary>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
+
+
+
+
         [HttpGet]
         public IActionResult Login(string returnUrl = "")
         {
