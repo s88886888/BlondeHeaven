@@ -14,16 +14,18 @@ namespace BlondeHeaven.Controllers
     /// <summary>
     /// 用户控制器
     /// </summary>
-    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public UserController(UserManager<ApplicationUser> userManager)
+        private readonly SignInManager<ApplicationUser> _signManager;
+
+        public UserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signManager)
         {
             _userManager = userManager;
+            _signManager = signManager;
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -31,6 +33,11 @@ namespace BlondeHeaven.Controllers
             return View(users);
         }
 
+
+        /// <summary>
+        /// 用户注册
+        /// </summary>
+        /// <returns></returns>
         public IActionResult AddUser()
         {
             return View();
@@ -66,6 +73,44 @@ namespace BlondeHeaven.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult Login(string returnUrl = "")
+        {
+            var model = new LoginViewModel { ReturnUrl = returnUrl };
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _signManager.PasswordSignInAsync(model.Eamil,
+                   model.Password, model.RememberMe, false);
+
+                if (result.Succeeded)
+                {
+                    if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                    {
+                        return Redirect(model.ReturnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "shop");
+                    }
+                }
+            }
+
+            if (string.IsNullOrEmpty(model.ReturnUrl))
+            {
+                model.ReturnUrl = "";
+            }
+
+            ModelState.AddModelError("", "Invalid login attempt");
+            return View(model);
+        }
+
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -76,7 +121,7 @@ namespace BlondeHeaven.Controllers
 
             return View(user);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> EditUser(string id, UserEditViewModel userEditViewModel)
         {
@@ -97,7 +142,7 @@ namespace BlondeHeaven.Controllers
             ModelState.AddModelError(string.Empty, "更新用户信息时发生错误");
             return View(user);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> DeleteUser(string id)
         {
