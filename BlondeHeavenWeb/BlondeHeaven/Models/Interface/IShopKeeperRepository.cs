@@ -14,10 +14,13 @@ namespace BlondeHeaven.Models.Interface
         /// <returns></returns>
         List<ShopKeeper> GetAllShopKeepers();
 
+        List<ShopKeeper> GetUserByShopKeepers(string id);
+
+        List<ShopKeeper> GetNameByShopKeepers(string id);
         ShopKeeper GetShopKeeperleById(int id);
         List<ShopKeeper> GetShopKeeperleByIdall(int id);
         ShopKeeper AddAsync(ShopKeeper model);
         ShopKeeper EditAsync(ShopKeeper model);
-        void Remo(int id);
+        void RemoAsync(int id);
     }
 }

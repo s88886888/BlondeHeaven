@@ -33,8 +33,19 @@ namespace BlondeHeaven.Models
 
         public List<ShopKeeper> GetAllShopKeepers()
         {
-            var shop = _m_context.ShopKeepers.Where(m => m.IsRemo == false).ToList();
-            return shop;
+            return _m_context.ShopKeepers.Where(m => m.IsRemo == false).ToList();
+
+        }
+        public List<ShopKeeper> GetUserByShopKeepers(string id)
+        {
+
+            return GetAllShopKeepers().Where(m => m.ApplicationUserId == id).ToList();
+        }
+
+        public List<ShopKeeper> GetNameByShopKeepers(string Name)
+        {
+
+            return GetAllShopKeepers().Where(m => m.Name.Contains(Name)).ToList();
         }
 
         public ShopKeeper GetShopKeeperleById(int id)
@@ -46,15 +57,15 @@ namespace BlondeHeaven.Models
         public List<ShopKeeper> GetShopKeeperleByIdall(int id)
         {
 
-            var shop = GetAllShopKeepers().Where(m => m.Id == id).ToList();
-            return shop;
+            return GetAllShopKeepers().Where(m => m.Id == id).ToList();
         }
 
-        public void Remo(int id)
+        public void RemoAsync(int id)
         {
             var shop = GetShopKeeperleById(id);
             shop.IsRemo = true;
             _m_context.Entry(shop).State = EntityState.Modified;
+            //await _m_context.SaveChangesAsync();
             _m_context.SaveChanges();
         }
     }

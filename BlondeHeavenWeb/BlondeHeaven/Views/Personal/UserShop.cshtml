@@ -16,9 +16,6 @@
                 @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
@@ -34,9 +31,6 @@
                 @Html.DisplayNameFor(model => model.Remarks)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShopKeeperName)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.CommodityName)
             </th>
             <th>
@@ -50,10 +44,7 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
+            </td>      
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -72,16 +63,13 @@
                 @Html.DisplayFor(modelItem => item.Remarks)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ShopKeeperName)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.CommodityName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreateCommodity)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("完成", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>

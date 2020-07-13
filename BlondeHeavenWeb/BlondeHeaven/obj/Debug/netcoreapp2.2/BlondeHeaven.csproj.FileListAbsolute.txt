@@ -312,3 +312,7 @@ C:\Users\大大卷泡泡乐\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb
 C:\Users\大大卷泡泡乐\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.csprojAssemblyReference.cache
 C:\Users\大大卷泡泡乐\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\User\Login.cshtml.g.cs
 C:\Users\大大卷泡泡乐\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\User\Login.cshtml.g.cs
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Personal\MyShop.cshtml.g.cs
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Personal\AdminShop.cshtml.g.cs

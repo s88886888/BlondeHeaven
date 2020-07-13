@@ -16,13 +16,15 @@ namespace BlondeHeaven.Controllers
 {
     public class PersonalController : Controller
     {
-        private IOrderRepository _or;
-        private ICommodityRepository _com;
+        private readonly IOrderRepository _or;
+        private readonly ICommodityRepository _com;
+        private readonly IShopKeeperRepository _shop;
         private UserManager<ApplicationUser> _userManager;
-        public PersonalController(IOrderRepository or, ICommodityRepository com, UserManager<ApplicationUser> userManager)
+        public PersonalController(IOrderRepository or, ICommodityRepository com, UserManager<ApplicationUser> userManager, IShopKeeperRepository shop)
         {
             _or = or;
             _com = com;
+            _shop = shop;
             _userManager = userManager;
         }
         // GET: PersonalController
@@ -42,12 +44,20 @@ namespace BlondeHeaven.Controllers
         // GET: PersonalController/Create
         public async Task<ActionResult> Order()
         {
+
             var res = await _userManager.GetUserAsync(HttpContext.User);
-            var UserOR = new OrderModelView()
+            if (res != null)
             {
-                Orders = _or.GetOrderByUserId(res.Id)
-            };
-            return View(UserOR);
+                var UserOR = new OrderModelView()
+                {
+                    Orders = _or.GetOrderByUserId(res.Id)
+                };
+                return View(UserOR);
+            }
+            else
+            {
+                return RedirectToAction("index", "shop");
+            }
         }
         // GET: PersonalController/Edit/5
         public ActionResult Edit(int id)
@@ -95,7 +105,6 @@ namespace BlondeHeaven.Controllers
         /// 商家订单中心
         /// </summary>
         /// <returns></returns>
-
         public async Task<ActionResult> UserShop()
         {
             //获取当前登入 用户
@@ -128,7 +137,35 @@ namespace BlondeHeaven.Controllers
 
             return View(lsmodel);
         }
-    }
+        /// <summary>
+        /// 商家店铺中心
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        public ActionResult MyShop()
+        {
+            return View();
+        }
 
+        [HttpGet]
+        public async Task<ActionResult> AdminShop()
+        {
+            var res = await _userManager.GetUserAsync(HttpContext.User);
+            if (res == null)
+            {
+                return RedirectToAction("index", "shop");
+            }
+            else
+            {
+                var viewModel = new ShopModelView()
+                {
+                    ShopKeepers = _shop.GetUserByShopKeepers(res.Id)
+                };
+                return View(viewModel);
+            };
+        }
+    }
 }
+
+
 

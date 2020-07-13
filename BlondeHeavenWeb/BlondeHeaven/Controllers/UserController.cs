@@ -79,14 +79,10 @@ namespace BlondeHeaven.Controllers
 
 
         /// <summary>
-        /// 用户注册
+        /// 用户登入
         /// </summary>
         /// <param name="returnUrl"></param>
         /// <returns></returns>
-
-
-
-
         [HttpGet]
         public IActionResult Login(string returnUrl = "")
         {
@@ -99,11 +95,7 @@ namespace BlondeHeaven.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 var result = await _signManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
-
-
-
                 if (result.Succeeded)
                 {
                     if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
@@ -116,12 +108,10 @@ namespace BlondeHeaven.Controllers
                     }
                 }
             }
-
             if (string.IsNullOrEmpty(model.ReturnUrl))
             {
                 model.ReturnUrl = "";
             }
-
             ModelState.AddModelError("", "Invalid login attempt");
             return View(model);
         }
@@ -135,7 +125,6 @@ namespace BlondeHeaven.Controllers
             {
                 return RedirectToAction("Index");
             }
-
             return View(user);
         }
         [Authorize(Roles = "Admin")]
@@ -147,7 +136,6 @@ namespace BlondeHeaven.Controllers
             {
                 return RedirectToAction("Index");
             }
-
             user.UserName = userEditViewModel.UserName;
             user.Email = userEditViewModel.Email;
             var result = await _userManager.UpdateAsync(user);
