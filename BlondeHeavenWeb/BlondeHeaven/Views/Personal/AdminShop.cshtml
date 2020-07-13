@@ -12,6 +12,13 @@
 
 @foreach (var shop in Model.ShopKeepers)
 {
+
+    <h3>
+        <a asp-controller="Commodity"
+           asp-action="Create"
+           asp-route-id="@shop.Id"> 点我增加商品</a>
+    </h3>
+
     <div class="col-sm-4 col-lg-4 col-md-4">
         <div class="thumbnail">
             <img src="@shop.Photo" alt="">
@@ -37,16 +44,6 @@
             </div>
         </div>
     </div>
-
-
-    <div>
-        <h3>
-            <a asp-controller="Commodity"
-               asp-action="Create"
-               asp-route-id="@shop.Id"> 点我增加商品</a>
-        </h3>
-    </div>
-
 }
 
 
