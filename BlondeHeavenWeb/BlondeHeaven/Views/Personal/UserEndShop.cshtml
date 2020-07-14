@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<BlondeHeaven.ViewModels.OrderViewModel>
-
 @{
-    ViewData["Title"] = "UserShop";
+    ViewData["Title"] = "UserEndShop";
 }
 
-<h2>UserShop</h2>
+
+
+<h2>已完成订单</h2>
 
 <table class="table">
     <thead>
@@ -67,9 +68,11 @@
                     @Html.DisplayFor(modelItem => item.CreateCommodity)
                 </td>
                 <td>
-                    @Html.ActionLink("查看订单状态", "Details", "Order", new { id = item.Id })
+                    @Html.ActionLink("查看订单状态", "EndDetails", "Order", new { id = item.Id })
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+

@@ -1,8 +1,11 @@
-﻿@model BlondeHeaven.ViewModels.Base.OrderModelView
+﻿
+@model BlondeHeaven.ViewModels.Base.OrderModelView
+@{
+    ViewData["Title"] = "历史订单";
+}
 
-@{ ViewData["Title"] = "详细信息"; }
 
-<h2>订单详细</h2>
+<h2>历史记录</h2>
 @foreach (var noodle in Model.Orders)
 {
 
@@ -37,6 +40,8 @@
 
 
 }
+
+
 
 
 

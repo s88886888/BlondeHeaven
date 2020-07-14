@@ -9,29 +9,30 @@ namespace BlondeHeaven.Models
 {
     public class OrderRepository : IOrderRepository
     {
-        private readonly AppDbContext _m_context;
+        private readonly AppDbContext _db;
 
         public OrderRepository(AppDbContext m_context)
         {
-            _m_context = m_context;
+            _db = m_context;
         }
 
         public Order Add(Order model)
         {
-            _m_context.Orders.Add(model);
-            _m_context.SaveChanges();
+            _db.Orders.Add(model);
+            _db.SaveChanges();
             return model;
         }
 
         public Order Edit(Order model)
         {
-            _m_context.Entry(model).State = EntityState.Modified;
+            _db.Entry(model).State = EntityState.Modified;
+            _db.SaveChanges();
             return model;
         }
 
         public List<Order> GetAllOrder()
         {
-            var Orders = _m_context.Orders.Where(m => m.IsRemo == false).ToList();
+            var Orders = _db.Orders.Where(m => m.IsRemo == false).ToList();
             return Orders;
         }
 
@@ -52,11 +53,22 @@ namespace BlondeHeaven.Models
             var shop = GetAllOrder().Where(m => m.ApplicationUserId == id).ToList();
             return shop;
         }
+        public List<Order> GetEndOrderByUserId(string id)
+        {
+
+            return _db.Orders.Where(m => m.ApplicationUserId == id && m.IsRemo == true).ToList();
+        }
         public List<Order> GetOrderByCommodityId(int id)
         {
 
             var shop = GetAllOrder().Where(m => m.CommodityId == id).ToList();
             return shop;
+        }
+        public List<Order> GetEndOrderByCommodityId(int id)
+        {
+
+            return _db.Orders.Where(m => m.CommodityId == id && m.IsRemo == true).ToList();
+
         }
 
         public List<Order> GetOrderByListId(int id)
@@ -64,13 +76,18 @@ namespace BlondeHeaven.Models
             var shop = GetAllOrder().Where(m => m.Id == id).ToList();
             return shop;
         }
+        public List<Order> GetEndOrderByListId(int id)
+        {
+            return _db.Orders.Where(m => m.Id == id && m.IsRemo == true).ToList();
+
+        }
 
         public void Remo(int id)
         {
             var shop = GetOrderById(id);
             shop.IsRemo = true;
-            _m_context.Entry(shop).State = EntityState.Modified;
-            _m_context.SaveChanges();
+            _db.Entry(shop).State = EntityState.Modified;
+            _db.SaveChanges();
         }
     }
 }

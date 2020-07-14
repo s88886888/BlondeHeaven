@@ -26,18 +26,27 @@ namespace BlondeHeaven.Models.Interface
         /// <param name="id"></param>
         /// <returns></returns>
         List<Order> GetOrderByListId(int id);
+        List<Order> GetEndOrderByListId(int id);
         /// <summary>
         /// 根据商品Id进行查询订单
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         List<Order> GetOrderByCommodityId(int id);
+        List<Order> GetEndOrderByCommodityId(int id);
         /// <summary>
         /// 根据用户Id进行查询
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         List<Order> GetOrderByUserId(string id);
+        /// <summary>
+        /// 根据用户Id查询已完成的订单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        List<Order> GetEndOrderByUserId(string id);
+
         /// <summary>
         /// 增加
         /// </summary>

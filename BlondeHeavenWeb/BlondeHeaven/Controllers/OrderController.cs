@@ -38,6 +38,13 @@ namespace BlondeHeaven.Controllers
             return View(model);
         }
 
+        public ActionResult EndDetails(int id)
+        {
+            var model = new OrderModelView();
+            model.Orders = _db.GetEndOrderByListId(id);
+            return View(model);
+        }
+
         /// <summary>
         /// 用户下单
         /// </summary>
