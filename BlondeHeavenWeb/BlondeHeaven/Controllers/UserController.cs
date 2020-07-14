@@ -53,7 +53,6 @@ namespace BlondeHeaven.Controllers
 
             var user = new ApplicationUser
             {
-
                 Email = model.Email,
                 UserName = model.UserName,
 
@@ -99,11 +98,7 @@ namespace BlondeHeaven.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 var result = await _signManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
-
-
-
                 if (result.Succeeded)
                 {
                     if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
