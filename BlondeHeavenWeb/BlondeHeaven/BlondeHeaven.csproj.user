@@ -14,6 +14,7 @@
     <NameOfLastUsedPublishProfile>IISProfile</NameOfLastUsedPublishProfile>
     <WebStackScaffolding_DependencyDialogWidth>600</WebStackScaffolding_DependencyDialogWidth>
     <ActiveDebugProfile>BlondeHeaven</ActiveDebugProfile>
+    <WebStackScaffolding_LayoutPageFile />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

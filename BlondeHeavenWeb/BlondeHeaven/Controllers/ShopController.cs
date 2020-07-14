@@ -19,11 +19,25 @@ namespace BlondeHeaven.Controllers
             _com = com;
             _userManager = userManager;
         }
+        [HttpGet]
         public ActionResult Index()
         {
             var viewModel = new ShopModelView()
             {
                 ShopKeepers = _db.GetAllShopKeepers(),
+            };
+            return View(viewModel);
+        }
+        [HttpPost]
+        public IActionResult Index(string SearchString)
+        {
+            if (SearchString == null)
+            {
+                ModelState.AddModelError("","值不能为空");
+            }
+            var viewModel = new ShopModelView()
+            {
+                ShopKeepers = _db.GetNameByShopKeepers(SearchString),
             };
             return View(viewModel);
         }
@@ -67,7 +81,6 @@ namespace BlondeHeaven.Controllers
             var shop = _db.GetShopKeeperleById(id);
             var res = await _userManager.GetUserAsync(HttpContext.User);
             ModelData(id, model, shop, res);
-
             return View(model);
         }
 
@@ -82,6 +95,7 @@ namespace BlondeHeaven.Controllers
             var res = await _userManager.GetUserAsync(HttpContext.User);
             ShopKeeper shop = new ShopKeeper();
             ShopData(model, res, shop);
+            shop.Id = model.Id;
             _db.EditAsync(shop);
             return View();
         }
@@ -104,7 +118,7 @@ namespace BlondeHeaven.Controllers
         public ActionResult Delete(int id)
         {
 
-            _db.Remo(id);
+            _db.RemoAsync(id);
             return RedirectToAction("index", "shop");
         }
 

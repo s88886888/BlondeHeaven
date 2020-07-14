@@ -17,8 +17,7 @@
             }
             @if (User.IsInRole("AdminShop"))
             {
-                <li><a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">店铺管理</a></li>
-                <li> <a class="nav-link text-dark" asp-area="" asp-controller="Personal" asp-action="UserShop">店主中心</a></li>
+                <li> <a class="nav-link text-dark" asp-area="" asp-controller="Personal" asp-action="MyShop">店主中心</a></li>
             }
             <li> <a class="nav-link text-dark" asp-area="" asp-controller="Personal" asp-action="Index">个人中心</a></li>
             <li>

@@ -1,0 +1,51 @@
+﻿@model BlondeHeaven.ViewModels.ShopModelView
+@{
+    ViewData["Title"] = "AdminShop";
+}
+<h2>我的店铺</h2>
+<h3>
+    <a asp-controller="shop"
+       asp-action="Create">添加店铺</a>
+</h3>
+
+
+
+@foreach (var shop in Model.ShopKeepers)
+{
+
+    <h3>
+        <a asp-controller="Commodity"
+           asp-action="Create"
+           asp-route-id="@shop.Id"> 点我增加商品</a>
+    </h3>
+
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <img src="@shop.Photo" alt="">
+            <div class="caption">
+                <h3 class="pull-right">￥@shop.Sales</h3>
+                <h4>
+                    <a asp-controller="shop"
+                       asp-action="Details"
+                       asp-route-id="@shop.Id">详细</a>
+                </h4>
+
+
+                <h4>
+                    <a asp-controller="shop"
+                       asp-action="Delete"
+                       asp-route-id="@shop.Id">删除</a>
+                </h4>
+                <h4>
+                    <a asp-controller="shop"
+                       asp-action="Edit"
+                       asp-route-id="@shop.Id">编辑</a>
+                </h4>
+                <p>@shop.Phone</p>
+            </div>
+        </div>
+    </div>
+}
+
+
+

@@ -20,29 +20,23 @@
         <div class="thumbnail">
             <div class="caption">
                 <h3 class="pull-right">￥@noodle.Name</h3>
-                <h3>
-                    <a asp-controller="shop"
-                       asp-action="Details"
-                       asp-route-id="@noodle.Id">详细</a>
-                </h3>
-                <h3>
-                    <a asp-controller="shop"
-                       asp-action="Delete"
-                       asp-route-id="@noodle.Id">删除</a>
-                </h3>
                 <p>@noodle.Sales</p>
                 <h3>我是店铺</h3>
             </div>
         </div>
     </div>
 
-    <div>
-        <h3>
-            <a asp-controller="Commodity"
-               asp-action="Create"
-               asp-route-id="@noodle.Id"> 点我增加商品</a>
-        </h3>
-    </div>
+    @if (User.IsInRole("Admin"))
+    {
+        <div>
+            <h1>权限：Admin可见</h1>
+            <h3>
+                <a asp-controller="Commodity"
+                   asp-action="Create"
+                   asp-route-id="@noodle.Id"> 点我增加商品</a>
+            </h3>
+        </div>
+    }
 }
 
 <div class="list-group">
