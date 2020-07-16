@@ -14,6 +14,8 @@ namespace BlondeHeaven.Controllers
     /// <summary>
     /// 用户控制器
     /// </summary>
+    /// 
+   
     public class UserController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -38,6 +40,7 @@ namespace BlondeHeaven.Controllers
         /// 用户注册
         /// </summary>
         /// <returns></returns>
+        /// 
         public IActionResult AddUser()
         {
             return View();

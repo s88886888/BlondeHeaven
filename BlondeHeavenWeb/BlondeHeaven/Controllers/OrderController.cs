@@ -6,6 +6,7 @@ using BlondeHeaven.Models;
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
 using BlondeHeaven.ViewModels.Base;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ using NPOI.SS.Formula.Functions;
 
 namespace BlondeHeaven.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private IOrderRepository _db;
@@ -56,9 +58,6 @@ namespace BlondeHeaven.Controllers
         {
 
             var res = await _userManager.GetUserAsync(HttpContext.User);
-
-
-
             model.Id = Id;
             var com = _com.GetCommodityById(Id);
             model.ShopKeeperName = com.ShopKeeperName;
@@ -96,7 +95,7 @@ namespace BlondeHeaven.Controllers
             order.Name = model.Name;
             order.Email = res.Email;
             _db.Add(order);
-            return View();
+            return RedirectToAction("Order", "Personal");
             //0.0 动之前问问我---------linson
 
         }
@@ -125,9 +124,6 @@ namespace BlondeHeaven.Controllers
         // GET: OrderController/Delete/5
         public ActionResult Delete(int id)
         {
-
-
-
             return View();
         }
 

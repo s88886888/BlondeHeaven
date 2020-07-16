@@ -6,12 +6,14 @@ using BlondeHeaven.Model;
 using BlondeHeaven.Models;
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlondeHeaven.Controllers
 {
+    [Authorize(Roles = "AdminShop,Admin")]
     public class CommodityController : Controller
     {
         private ICommodityRepository _db;

@@ -63,13 +63,15 @@ namespace BlondeHeaven.Controllers
 
             return View(viewModel);
         }
-        [Authorize(Roles = "AdminShop")]
+        [Authorize(Roles = "AdminShop,Admin")]
         // GET: ShopController1/Create
         public ActionResult Create()
         {
             return View();
         }
 
+
+        [Authorize(Roles = "AdminShop,Admin")]
         // POST: ShopController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -98,13 +100,14 @@ namespace BlondeHeaven.Controllers
                     fs.Flush();
                 }
             }
+            shop.Sales = 0;
             _db.AddAsync(shop);
             return View(ShopViewModel);
         }
 
 
 
-        [Authorize(Roles = "AdminShop")]
+        [Authorize(Roles = "AdminShop,Admin")]
         // GET: ShopController1/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
@@ -117,7 +120,7 @@ namespace BlondeHeaven.Controllers
 
 
 
-        [Authorize(Roles = "AdminShop")]
+        [Authorize(Roles = "AdminShop,Admin")]
         // POST: ShopController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -131,7 +134,7 @@ namespace BlondeHeaven.Controllers
             return View();
         }
 
-        [Authorize(Roles = "AdminShop")]
+        [Authorize(Roles = "AdminShop,Admin")]
         // GET: ShopController1/Delete/5
         public async Task<ActionResult> Delete(int id, ShopViewModel model)
         {
@@ -143,6 +146,7 @@ namespace BlondeHeaven.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "AdminShop,Admin")]
         // POST: ShopController1/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
