@@ -62,8 +62,6 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<DateTime>("DateTime");
 
-                    b.Property<string>("Details");
-
                     b.Property<bool>("IsRemo");
 
                     b.Property<string>("Name");
@@ -71,8 +69,6 @@ namespace BlondeHeaven.Migrations
                     b.Property<string>("Photo");
 
                     b.Property<double>("Price");
-
-                    b.Property<int>("Sales");
 
                     b.Property<int>("ShopKeeperId");
 
@@ -96,8 +92,6 @@ namespace BlondeHeaven.Migrations
                     b.Property<string>("Address");
 
                     b.Property<string>("ApplicationUserId");
-
-                    b.Property<int>("Comment");
 
                     b.Property<int>("CommodityId");
 

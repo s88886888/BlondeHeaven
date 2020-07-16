@@ -8,6 +8,8 @@ namespace BlondeHeaven.Models
     public class Order : BaseEntity
     {
 
+        public string Comment { get; set; }
+
         public string Address { get; set; }
         public double Price { get; set; }
 
@@ -21,15 +23,6 @@ namespace BlondeHeaven.Models
         public string ShopKeeperName { get; set; }
 
         public string CommodityName { get; set; }
-
-
-
-
-        /// <summary>
-        /// 评论
-        /// </summary>
-        public int Comment { get; set; }
-
 
         [ForeignKey(nameof(ShopKeeper))]
         public int ShopKeeperId { get; set; }
