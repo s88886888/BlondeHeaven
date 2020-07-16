@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "P3cEXGpP3AtvlMCD1mokEKXQgoUGfYlTdV1ZbU0LZ9Y70lRNWlOkzXmxpNIB5hfZtKrWPnqXIlzm2i1/WG/p/w==",
+  "dgSpecHash": "8kIva2Apj4/YdLYFp9U/WefIBVdGKC3lZSv764x0kYY2G34oitC92H0oZCowJiR6a925o+QDJMzXO95xqkLaIw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Administrator\\Desktop\\金发天国\\BlondeHeaven2.0\\BlondeHeavenWeb\\BlondeHeaven\\BlondeHeaven.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\bootstrap\\4.0.0\\bootstrap.4.0.0.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\jquery\\3.5.1\\jquery.3.5.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

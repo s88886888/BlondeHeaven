@@ -79,6 +79,10 @@
             "bootstrap": {
               "target": "Package",
               "version": "[4.0.0, )"
+            },
+            "jQuery": {
+              "target": "Package",
+              "version": "[3.5.1, )"
             }
           },
           "imports": [

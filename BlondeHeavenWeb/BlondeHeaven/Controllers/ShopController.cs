@@ -2,8 +2,10 @@
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace BlondeHeaven.Controllers
@@ -33,7 +35,7 @@ namespace BlondeHeaven.Controllers
         {
             if (SearchString == null)
             {
-                ModelState.AddModelError("","值不能为空");
+                ModelState.AddModelError("", "值不能为空");
             }
             var viewModel = new ShopModelView()
             {
@@ -57,20 +59,34 @@ namespace BlondeHeaven.Controllers
         // GET: ShopController1/Create
         public ActionResult Create()
         {
+            var model = new ShopViewModel();
+
             return View();
         }
 
         // POST: ShopController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ShopViewModel ShopViewModel)
+        public async Task<ActionResult> Create(ShopViewModel model, IFormFile image)
         {
             //动态获取当前登入用户信息
             var res = await _userManager.GetUserAsync(HttpContext.User);
             ShopKeeper shop = new ShopKeeper();
-            ShopData(ShopViewModel, res, shop);
+            ShopData(model, res, shop);
+
+            if (image != null && image.Length > 0)
+            {
+                var fileName = Path.GetFileName(image.FileName);
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", fileName);
+                using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                {
+                    await image.CopyToAsync(fileSteam);
+                }
+                shop.Photo = fileName;
+            }
+
             _db.AddAsync(shop);
-            return View(ShopViewModel);
+            return View(model);
         }
 
         [Authorize(Roles = "AdminShop")]
@@ -81,6 +97,7 @@ namespace BlondeHeaven.Controllers
             var shop = _db.GetShopKeeperleById(id);
             var res = await _userManager.GetUserAsync(HttpContext.User);
             ModelData(id, model, shop, res);
+
             return View(model);
         }
 
@@ -131,7 +148,6 @@ namespace BlondeHeaven.Controllers
         {
             shop.Name = Model.Name;
             shop.Phone = Model.Phone;
-            shop.Photo = Model.Photo;
             shop.Sales = Model.Sales;
             shop.Address = Model.Address;
             shop.ApplicationUserId = res.Id;

@@ -54,7 +54,11 @@ namespace BlondeHeaven.Controllers
         // GET: OrderController/Create
         public async Task<ActionResult> Create(int Id, OrderViewModel model)
         {
+
             var res = await _userManager.GetUserAsync(HttpContext.User);
+
+
+
             model.Id = Id;
             var com = _com.GetCommodityById(Id);
             model.ShopKeeperName = com.ShopKeeperName;

@@ -265,3 +265,6 @@ C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\Blon
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.pdb
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.genruntimeconfig.cache
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\BlondeHeaven.csproj.CopyComplete
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Order\EndDetails.cshtml.g.cs
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Personal\EndOrder.cshtml.g.cs
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Personal\UserEndShop.cshtml.g.cs

@@ -271,7 +271,6 @@ C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\Blon
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\bin\Debug\netcoreapp2.2\BlondeHeaven.Views.pdb
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.AssemblyInfoInputs.cache
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.AssemblyInfo.cs
-C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.RazorAssemblyInfo.cache
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.RazorAssemblyInfo.cs
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.TagHelpers.input.cache
@@ -318,3 +317,6 @@ C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\Blon
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.pdb
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.genruntimeconfig.cache
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.csproj.CopyComplete
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Photo\Index.cshtml.g.cs
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\BlondeHeaven.csproj.CoreCompileInputs.cache
