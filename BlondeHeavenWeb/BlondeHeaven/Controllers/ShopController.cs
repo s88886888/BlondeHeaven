@@ -54,6 +54,9 @@ namespace BlondeHeaven.Controllers
         // GET: ShopController1/Details/5
         public ActionResult Details(int id, ShopViewModel shopViewModel)
         {
+
+
+
             var viewModel = new ShopModelView()
             {
                 ShopKeepers = _db.GetShopKeeperleByIdall(id),
@@ -84,7 +87,9 @@ namespace BlondeHeaven.Controllers
             foreach (var file in files)
             {
                 var fileName = Guid.NewGuid().ToString() + ".jpg";
+                //照片路径
                 shop.Photo = "/UploadFiles/" + fileName;
+
                 var fileDir = Path.Combine(_hostingEnv.WebRootPath, "UploadFiles");
                 if (!Directory.Exists(fileDir))
                 {

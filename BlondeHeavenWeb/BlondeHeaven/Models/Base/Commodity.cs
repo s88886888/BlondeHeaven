@@ -12,10 +12,10 @@ namespace BlondeHeaven.Model
         /// <summary>
         /// 商品表
         /// </summary>
-
-
-
         public string Address { get; set; }
+
+
+        public string Details { get; set; }
 
         ///创建预约时间
         public DateTime CreateCommodity { get; set; }
@@ -28,14 +28,17 @@ namespace BlondeHeaven.Model
         /// </summary>
         public string Photo { get; set; }
 
+        /// <summary>
+        /// 销量
+        /// </summary>
+        public int Sales { get; set; }
+
+
 
         [ForeignKey(nameof(ShopKeeper))]
         public int ShopKeeperId { get; set; }
 
         public string ShopKeeperName { get; set; }
         public string ApplicationUserId { get; set; }
-
-
-
     }
 }

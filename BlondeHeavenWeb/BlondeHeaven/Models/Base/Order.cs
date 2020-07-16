@@ -22,6 +22,15 @@ namespace BlondeHeaven.Models
 
         public string CommodityName { get; set; }
 
+
+
+
+        /// <summary>
+        /// 评论
+        /// </summary>
+        public int Comment { get; set; }
+
+
         [ForeignKey(nameof(ShopKeeper))]
         public int ShopKeeperId { get; set; }
 

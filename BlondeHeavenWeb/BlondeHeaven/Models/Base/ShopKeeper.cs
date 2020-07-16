@@ -19,7 +19,7 @@ namespace BlondeHeaven.Models
         /// </summary>
         public string Phone { get; set; }
         /// <summary>
-        /// 价格
+        /// 销量
         /// </summary>
         public int Sales { get; set; }
 
