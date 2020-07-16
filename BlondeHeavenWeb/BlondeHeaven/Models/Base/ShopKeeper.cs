@@ -19,17 +19,17 @@ namespace BlondeHeaven.Models
         /// </summary>
         public string Phone { get; set; }
         /// <summary>
-        /// 价格
+        /// 销量
         /// </summary>
         public int Sales { get; set; }
-
+        /// <summary>
+        /// 用户Id
+        /// </summary>
         [ForeignKey(nameof(ApplicationUser))]
         public string ApplicationUserId { get; set; }
 
 
-        public List<Comment> Comments { get; set; }
         public List<Commodity> Commoditys { get; set; }
-
         public List<Order> Orders { get; set; }
     }
 }

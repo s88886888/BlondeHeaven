@@ -37,7 +37,7 @@ namespace BlondeHeaven.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("ShopKeeperId");
+                    b.Property<int?>("ShopKeeperId");
 
                     b.HasKey("Id");
 
@@ -334,10 +334,9 @@ namespace BlondeHeaven.Migrations
                         .WithMany("Comments")
                         .HasForeignKey("ApplicationUserId");
 
-                    b.HasOne("BlondeHeaven.Models.ShopKeeper", "ShopKeepers")
+                    b.HasOne("BlondeHeaven.Models.ShopKeeper")
                         .WithMany("Comments")
-                        .HasForeignKey("ShopKeeperId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ShopKeeperId");
                 });
 
             modelBuilder.Entity("BlondeHeaven.Model.Commodity", b =>

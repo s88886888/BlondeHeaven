@@ -6,6 +6,7 @@ using BlondeHeaven.Models;
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
 using BlondeHeaven.ViewModels.Base;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ using NPOI.SS.Formula.Functions;
 
 namespace BlondeHeaven.Controllers
 {
+    [Authorize]
     public class PersonalController : Controller
     {
         private readonly IOrderRepository _or;
@@ -71,8 +73,11 @@ namespace BlondeHeaven.Controllers
         public ActionResult FinishOrder(int id)
         {
             var order = _or.GetOrderById(id);
+            var shop = _shop.GetShopKeeperleById(order.ShopKeeperId);
+            shop.Sales = +1;
             order.IsRemo = true;
             _or.Edit(order);
+            _shop.EditAsync(shop);
             return RedirectToAction("Order");
         }
 

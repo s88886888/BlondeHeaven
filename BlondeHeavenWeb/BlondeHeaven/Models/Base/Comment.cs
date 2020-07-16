@@ -18,8 +18,6 @@ namespace BlondeHeaven.Model
         [Required, StringLength(3000)]
         ///评论内容
         public string Content { get; set; }
-        [ForeignKey(nameof(ShopKeeper))]
-        public int ShopKeeperId { get; set; }
-        public ShopKeeper  ShopKeepers { get; set; }
+
     }
 }
