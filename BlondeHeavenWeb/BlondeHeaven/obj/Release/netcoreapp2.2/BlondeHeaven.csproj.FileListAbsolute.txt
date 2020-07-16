@@ -268,3 +268,6 @@ C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\Blon
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Order\EndDetails.cshtml.g.cs
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Personal\EndOrder.cshtml.g.cs
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Personal\UserEndShop.cshtml.g.cs
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Comment\Add.cshtml.g.cs
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Comment\Index.cshtml.g.cs
+C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Release\netcoreapp2.2\Razor\Views\Photo\Index.cshtml.g.cs

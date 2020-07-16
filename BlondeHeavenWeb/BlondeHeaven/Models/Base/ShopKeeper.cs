@@ -29,7 +29,6 @@ namespace BlondeHeaven.Models
         public string ApplicationUserId { get; set; }
 
 
-        public List<Comment> Comments { get; set; }
         public List<Commodity> Commoditys { get; set; }
         public List<Order> Orders { get; set; }
     }

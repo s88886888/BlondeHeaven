@@ -1,4 +1,5 @@
 ﻿using BlondeHeaven.Models;
+using BlondeHeaven.Models.Data;
 using BlondeHeaven.Models.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -44,6 +45,7 @@ namespace BlondeHeaven
             //将一系列请求整合到一个事务中
             services.AddTransient<IShopKeeperRepository, ShopKeeperRepository>();
             services.AddTransient<ICommodityRepository, CommodityRepository>();
+            services.AddTransient<ICommentRepository, CommentRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
 
             //Ef core3.15 连接数据库
@@ -94,5 +96,5 @@ namespace BlondeHeaven
             });
         }
     }
-    
+
 }

@@ -1,0 +1,31 @@
+﻿@model BlondeHeaven.ViewModels.Base.CommentModelView
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<div>
+    <h1>
+        <a asp-controller="Comment"
+           asp-action="Add">
+            有什么问题？
+        </a>
+    </h1>
+</div>
+
+
+
+<div class="list-group">
+    @foreach (var Com in Model.Comments)
+    {
+        <a class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="list-group-item-heading">@Com.Name</h5>
+                <small class="pull-right">@Com.DateTime</small>
+            </div>
+            <p class="list-group-item-text">@Com.Content</p>
+        </a>}
+</div>
+
