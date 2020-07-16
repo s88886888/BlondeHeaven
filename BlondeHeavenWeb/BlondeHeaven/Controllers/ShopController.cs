@@ -2,10 +2,15 @@
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace BlondeHeaven.Controllers
@@ -14,12 +19,15 @@ namespace BlondeHeaven.Controllers
     {
         private IShopKeeperRepository _db;
         private ICommodityRepository _com;
+        private IHostingEnvironment _hostingEnv;
+
         private UserManager<ApplicationUser> _userManager;
-        public ShopController(IShopKeeperRepository db, ICommodityRepository com, UserManager<ApplicationUser> userManager)
+        public ShopController(IShopKeeperRepository db, ICommodityRepository com, UserManager<ApplicationUser> userManager, IHostingEnvironment hostingEnv)
         {
             _db = db;
             _com = com;
             _userManager = userManager;
+            _hostingEnv = hostingEnv;
         }
         [HttpGet]
         public ActionResult Index()
@@ -59,35 +67,42 @@ namespace BlondeHeaven.Controllers
         // GET: ShopController1/Create
         public ActionResult Create()
         {
-            var model = new ShopViewModel();
-
             return View();
         }
 
         // POST: ShopController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ShopViewModel model, IFormFile image)
+        public async Task<ActionResult> Create(ShopViewModel ShopViewModel, List<IFormFile> files)
         {
             //动态获取当前登入用户信息
             var res = await _userManager.GetUserAsync(HttpContext.User);
             ShopKeeper shop = new ShopKeeper();
-            ShopData(model, res, shop);
+            ShopData(ShopViewModel, res, shop);
+            long size = 0;
 
-            if (image != null && image.Length > 0)
+            foreach (var file in files)
             {
-                var fileName = Path.GetFileName(image.FileName);
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", fileName);
-                using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                var fileName = Guid.NewGuid().ToString() + ".jpg";
+                shop.Photo = "/UploadFiles/" + fileName;
+                var fileDir = Path.Combine(_hostingEnv.WebRootPath, "UploadFiles");
+                if (!Directory.Exists(fileDir))
                 {
-                    await image.CopyToAsync(fileSteam);
+                    Directory.CreateDirectory(fileDir);
                 }
-                shop.Photo = fileName;
+                string filePath = fileDir + $@"\{fileName}";
+                size += file.Length;
+                using (FileStream fs = System.IO.File.Create(filePath))
+                {
+                    file.CopyTo(fs);
+                    fs.Flush();
+                }
             }
-
             _db.AddAsync(shop);
-            return View(model);
+            return View(ShopViewModel);
         }
+
+
 
         [Authorize(Roles = "AdminShop")]
         // GET: ShopController1/Edit/5
@@ -97,7 +112,6 @@ namespace BlondeHeaven.Controllers
             var shop = _db.GetShopKeeperleById(id);
             var res = await _userManager.GetUserAsync(HttpContext.User);
             ModelData(id, model, shop, res);
-
             return View(model);
         }
 
@@ -148,6 +162,7 @@ namespace BlondeHeaven.Controllers
         {
             shop.Name = Model.Name;
             shop.Phone = Model.Phone;
+            shop.Photo = Model.Photo;
             shop.Sales = Model.Sales;
             shop.Address = Model.Address;
             shop.ApplicationUserId = res.Id;
@@ -166,3 +181,5 @@ namespace BlondeHeaven.Controllers
         }
     }
 }
+
+

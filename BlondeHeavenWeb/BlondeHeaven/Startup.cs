@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace BlondeHeaven
 {
@@ -58,6 +60,11 @@ namespace BlondeHeaven
             })
          .AddDefaultUI()
         .AddEntityFrameworkStores<AppDbContext>();
+
+
+
+            services.AddMvc();
+            services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,7 +92,7 @@ namespace BlondeHeaven
             {
                 route.MapRoute("defaul", "{controller=Shop}/{action=Index}/{id?}");
             });
-
         }
     }
+    
 }

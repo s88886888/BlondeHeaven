@@ -3,97 +3,38 @@
     ViewData["Title"] = "Index";
 }
 
-
-@*<form asp-action="UploadFiles"
-          asp-controller="Photo"
-          method="post"
-          enctype="multipart/form-data">
-        <input type="file" name="files" multiple />
-        <input type="submit" value="Upload Selected Files" />
-    </form>*@
-
-
-
-@*<form method="post" enctype="multipart/form-data">
-        <input type="file" id="files"
-               name="files" multiple />
-        <input type="button"
-               id="upload"
-               value="上传" onclick="testUpload()" />
-
-    </form>*@
+<form method="post" enctype="multipart/form-data">
+    <input type="file" id="files"
+           name="files" multiple />
+    <input type="button"
+           id="upload"
+           value="上传" onclick="Asd()"  />
+</form>
 
 
 
-@*<script type="text/javascript">
-        function testUpload() {
-                var fileUpload = $("#files").get(0);
-                var files = fileUpload.files;
-                var data = new FormData();
-                for (var i = 0; i < files.length; i++) {
-                    data.append(files[i].name, files[i]);
+<script type="text/javascript">
+    $(function Asd(){
+        $("#upload").click(function (evt) {
+            var fileUpload = $("#files").get(0);
+            var files = fileUpload.files;
+            var data = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                data.append(files[i].name, files[i]);
+            }
+            $.ajax({
+                type: "POST",
+                url: "/Picture/UploadFilesAjax",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    alert(message);
+                },
+                error: function () {
+                    alert("There was error uploading files!");
                 }
-                $.ajax({
-                    type: "POST",
-                    url: "/Photo/UploadFilesAjax",
-                    contentType: false,
-                    processData: false,
-                    data: data,
-                    success: function (message) {
-                        alert(message);
-                    },
-                    error: function () {
-                        alert("XXXXXX!!");
-                    }
-                });
-            }
-
-    </script>*@
-
-
-<div class="margin-top">点击图片上传&nbsp;&nbsp;<input type="file" name="fileupload" id="fileupload" /></div>
-
-
-<script>
-    //图片上传的客户端验证及预览图片
-    $("#fileupload").change(function (e) {
-        var file = e.delegateTarget.files[0];
-        //在此可以对选择的文件进行判断：文件类型 文件大小等
-        //.....
-        //alert（file.name）
-        var hz = file.name.substring(file.name.indexOf('.'));//文件后缀
-        //alert(hz)
-
-        if (!IsImage(hz.toLocaleUpperCase())) {
-            alert("文件要求的图片类型：jpg,gif,png,bmp");
-            $("#fileupload").val("");//清空文件标签
-        }
-        else {
-            if (file.size > 2097152) {
-                alert("图片大小越界(<2MB)");
-                $("#fileupload").val("");//清空文件标签
-            }
-            else {
-                var reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = function (ret) {
-                    picString = reader.result
-                    //预览图片
-                    $("#albumImg").attr({ "src": picString })
-                }
-            }
-        }
+            });
+        });
     });
-
-    function IsImage(hz) {
-        var ys = false;
-        var hzs = new Array(".JPG", ".GIF", ".PNG", ".BMP");//图片类型
-        for (var i = 0; i < hzs.length; i++) {
-            if (hz == hzs[i]) {
-                ys = true;
-                break;
-            }
-        }
-        return ys;
-    }
 </script>
