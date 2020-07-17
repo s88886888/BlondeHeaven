@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BlondeHeaven.Models;
 using BlondeHeaven.Models.Interface;
@@ -10,8 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Rewrite.Internal.IISUrlRewrite;
-using NPOI.SS.Formula.Functions;
 
 namespace BlondeHeaven.Controllers
 {
@@ -111,7 +107,7 @@ namespace BlondeHeaven.Controllers
             var order = _or.GetEndOrderById(model.Id);
             order.Comment = model.Comment;
             _or.Edit(order);
-            return RedirectToAction("Endorder");
+            return RedirectToAction("MyComment");
         }
         /// <summary>
         /// 我的所有评价
