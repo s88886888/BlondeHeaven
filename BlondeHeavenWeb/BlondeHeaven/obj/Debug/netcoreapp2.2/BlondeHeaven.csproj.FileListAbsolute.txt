@@ -328,3 +328,8 @@ C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\Blon
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Photo\Index.cshtml.g.cs
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Comment\Index.cshtml.g.cs
 C:\Users\Administrator\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Comment\Add.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Comment\Add.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Comment\Index.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Commodity\Edit.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Commodity\Index.cshtml.g.cs
+C:\Users\大大卷泡泡乐\Desktop\金发天国\BlondeHeaven2.0\BlondeHeavenWeb\BlondeHeaven\obj\Debug\netcoreapp2.2\Razor\Views\Personal\Comment.cshtml.g.cs

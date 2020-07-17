@@ -25,6 +25,7 @@ namespace BlondeHeaven.ViewModels
 
         public string CommodityName { get; set; }
 
+        public string Comment { get; set; }
         public DateTime CreateCommodity { get; set; }
 
     }

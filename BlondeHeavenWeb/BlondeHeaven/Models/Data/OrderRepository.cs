@@ -46,6 +46,11 @@ namespace BlondeHeaven.Models
 
             return GetAllOrder().FirstOrDefault(m => m.Id == id);
         }
+        public Order GetEndOrderById(int id)
+        {
+
+            return _db.Orders.FirstOrDefault(m => m.Id == id && m.IsRemo == true);
+        }
 
         public List<Order> GetOrderByUserId(string id)
         {

@@ -26,9 +26,18 @@ namespace BlondeHeaven.Controllers
             _userManager = userManager;
         }
         // GET: CommodityController
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View();
+            if (id == 0)
+            {
+                return View();
+            }
+            var model = new ShopModelView()
+            {
+                Commoditys = _db.GetCommodityBListId(id)
+            };
+            return View(model);
+
         }
 
         // GET: CommodityController/Details/5

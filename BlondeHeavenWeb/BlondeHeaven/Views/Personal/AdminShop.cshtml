@@ -19,6 +19,12 @@
            asp-route-id="@shop.Id"> 点我增加商品</a>
     </h3>
 
+    <h3>
+        <a asp-controller="Commodity"
+           asp-action="Index"
+           asp-route-id="@shop.Id"> 查看所有商品</a>
+    </h3>
+
     <div class="col-sm-4 col-lg-4 col-md-4">
         <div class="thumbnail">
             <img src="@shop.Photo" alt="">

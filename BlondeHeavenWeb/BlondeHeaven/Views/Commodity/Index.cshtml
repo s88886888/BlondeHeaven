@@ -1,0 +1,36 @@
+﻿@model BlondeHeaven.ViewModels.ShopModelView
+@{
+    ViewData["Title"] = "Index";
+}
+
+@foreach (var shop in Model.Commoditys)
+{
+
+
+    <h3>
+        <a asp-controller="Commodity"
+           asp-action="Edit"
+           asp-route-id="@shop.Id"> 修改这个商品</a>
+    </h3>
+
+    <h3>
+        <a asp-controller="Commodity"
+           asp-action="Edit"
+           asp-route-id="@shop.Id"> 删除这个商品</a>
+    </h3>
+
+    <div class="caption">
+        <h3>价格 @shop.Price</h3>
+        <p>单子创建时间 @shop.DateTime</p>
+        <p>店铺名字 @shop.ShopKeeperName</p>
+        <p>商品名字 @shop.Name</p>
+        <p>地址 @shop.Address</p>
+        <p>@shop.ApplicationUserId</p>
+        <p>名字 @shop.Name</p>
+        <p>照片 @shop.Photo</p>
+        <p>预约时间 @shop.CreateCommodity</p>
+        <p>--------------------------------</p>
+    </div>
+
+}
+

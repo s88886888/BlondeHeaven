@@ -73,13 +73,49 @@ namespace BlondeHeaven.Controllers
         public ActionResult FinishOrder(int id)
         {
             var order = _or.GetOrderById(id);
+            var com = _com.GetCommodityById(order.CommodityId);
             var shop = _shop.GetShopKeeperleById(order.ShopKeeperId);
             shop.Sales = +1;
+            com.Sales = +1;
             order.IsRemo = true;
             _or.Edit(order);
             _shop.EditAsync(shop);
-            return RedirectToAction("Order");
+            return RedirectToAction("EndOrder");
         }
+        /// <summary>
+        /// 评价订单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult Comment(int id)
+        {
+            var model = new OrderViewModel();
+            var order = _or.GetEndOrderById(id);
+            model.Id = order.Id;
+            model.Name = order.Name;
+            model.Phone = order.Phone;
+            model.Price = order.Price;
+            model.Remarks = order.Remarks;
+            model.ShopKeeperName = order.ShopKeeperName;
+            model.Email = order.Name;
+            model.CommodityName = order.CommodityName;
+            model.Address = order.Address;
+            model.CreateCommodity = order.CreateCommodity;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Comment(OrderViewModel model)
+        {
+
+            var order = _or.GetEndOrderById(model.Id);
+            order.Comment = model.Comment;
+            return RedirectToAction("order");
+        }
+
+
+
+
 
         /// <summary>
         /// 显示已完成订单

@@ -20,6 +20,8 @@ namespace BlondeHeaven.Models.Interface
         /// <param name="id"></param>
         /// <returns></returns>
         Order GetOrderById(int id);
+
+        Order GetEndOrderById(int id);
         /// <summary>
         /// 根据订单id进行查询（集合）
         /// </summary>

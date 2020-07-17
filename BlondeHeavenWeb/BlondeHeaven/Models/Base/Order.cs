@@ -7,7 +7,9 @@ namespace BlondeHeaven.Models
 {
     public class Order : BaseEntity
     {
-
+        /// <summary>
+        /// 评价
+        /// </summary>
         public string Comment { get; set; }
 
         public string Address { get; set; }

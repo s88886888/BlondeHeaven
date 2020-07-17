@@ -28,9 +28,13 @@ namespace BlondeHeaven.Model
         /// </summary>
         public string Photo { get; set; }
 
-
+        /// <summary>
+        /// 详细信息
+        /// </summary>
         public string Details { get; set; }
-
+        /// <summary>
+        /// 销量
+        /// </summary>
         public int Sales { get; set; }
 
 

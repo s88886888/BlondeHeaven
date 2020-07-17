@@ -3,8 +3,12 @@
     ViewData["Title"] = "EndOrder";
 }
 <h2>历史订单</h2>
+
+
 @foreach (var noodle in Model.Orders)
 {
+
+
     <div class="col-sm-4 col-lg-4 col-md-4">
         <div class="thumbnail">
             <div class="caption">
@@ -14,6 +18,11 @@
             </div>
         </div>
     </div>
+    <h4>
+        <a asp-controller="Personal"
+           asp-action="Comment"
+           asp-route-id="@noodle.Id">评论</a>
+    </h4>
 }
 
 
