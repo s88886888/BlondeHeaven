@@ -77,6 +77,7 @@ namespace BlondeHeaven.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ShopViewModel ShopViewModel, List<IFormFile> files)
         {
+        
             //动态获取当前登入用户信息
             var res = await _userManager.GetUserAsync(HttpContext.User);
             ShopKeeper shop = new ShopKeeper();
