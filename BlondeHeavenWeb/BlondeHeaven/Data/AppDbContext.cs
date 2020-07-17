@@ -18,7 +18,5 @@ namespace BlondeHeaven.Models
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Commodity> Commoditys { get; set; }
-        public DbSet<BlondeHeaven.ViewModels.CommodityViewModel> CommodityViewModel { get; set; }
-        public DbSet<BlondeHeaven.ViewModels.OrderViewModel> OrderViewModel { get; set; }
     }
 }

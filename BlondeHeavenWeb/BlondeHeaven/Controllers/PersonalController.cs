@@ -83,7 +83,7 @@ namespace BlondeHeaven.Controllers
             return RedirectToAction("EndOrder");
         }
         /// <summary>
-        /// 评价订单
+        /// 添加评价订单
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -110,7 +110,20 @@ namespace BlondeHeaven.Controllers
 
             var order = _or.GetEndOrderById(model.Id);
             order.Comment = model.Comment;
-            return RedirectToAction("order");
+            _or.Edit(order);
+            return RedirectToAction("Endorder");
+        }
+        /// <summary>
+        /// 我的所有评价
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public async Task<ActionResult> MyComment()
+        {
+            var res = await _userManager.GetUserAsync(HttpContext.User);
+            var model = new OrderModelView();
+            model.Orders = _or.GetOrderByComment(res.Id);
+            return View(model);
         }
 
 
@@ -243,11 +256,6 @@ namespace BlondeHeaven.Controllers
                 return View(viewModel);
             };
         }
-
-
-
-
-
         public async Task<ActionResult> UserEndShop()
         {
             //获取当前登入 用户
@@ -279,8 +287,6 @@ namespace BlondeHeaven.Controllers
             }
             return View(lsmodel);
         }
-
-
     }
 }
 

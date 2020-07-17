@@ -5,8 +5,16 @@ using System.Threading.Tasks;
 
 namespace BlondeHeaven.Models.Interface
 {
-  public  interface IOrderRepository
+    public interface IOrderRepository
     {
+
+
+        /// <summary>
+        /// 我的评论
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        List<Order> GetOrderByComment(string id);
 
         /// <summary>
         /// 查询所有的订单

@@ -1,0 +1,19 @@
+﻿@model BlondeHeaven.ViewModels.Base.OrderModelView
+@{
+    ViewData["Title"] = "MyComment";
+}
+
+
+<div class="list-group">
+    @foreach (var Com in Model.Orders)
+    {
+        <a class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="list-group-item-heading">@Com.Name</h5>
+                <small class="pull-right">@Com.Phone</small>
+            </div>
+            <p class="list-group-item-text">@Com.Comment</p>
+        </a>}
+</div>
+
+

@@ -69,6 +69,13 @@ namespace BlondeHeaven.Models
             var shop = GetAllOrder().Where(m => m.CommodityId == id).ToList();
             return shop;
         }
+
+        public List<Order> GetOrderByComment(string id)
+        {
+
+            return _db.Orders.Where(m => m.Comment != null && m.IsRemo == true && m.ApplicationUserId == id).ToList();
+        }
+
         public List<Order> GetEndOrderByCommodityId(int id)
         {
 
