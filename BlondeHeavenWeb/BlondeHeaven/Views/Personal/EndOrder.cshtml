@@ -16,12 +16,14 @@
             </div>
         </div>
     </div>
-
-    <h4>
-        <a asp-controller="Personal"
-           asp-action="Comment"
-           asp-route-id="@noodle.Id">评论</a>
-    </h4>
+    @if (@noodle.Comment == null)
+    {
+        <h4>
+            <a asp-controller="Personal"
+               asp-action="Comment"
+               asp-route-id="@noodle.Id">评论</a>
+        </h4>
+    }
 }
 
 

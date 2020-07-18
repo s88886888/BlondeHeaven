@@ -86,6 +86,7 @@ namespace BlondeHeaven.Controllers
         [HttpGet]
         public ActionResult Comment(int id)
         {
+
             var model = new OrderViewModel();
             var order = _or.GetEndOrderById(id);
             model.Id = order.Id;
@@ -105,9 +106,14 @@ namespace BlondeHeaven.Controllers
         {
 
             var order = _or.GetEndOrderById(model.Id);
-            order.Comment = model.Comment;
-            _or.Edit(order);
-            return RedirectToAction("MyComment");
+            if (order.Comment == null)
+            {
+                order.Comment = model.Comment;
+                _or.Edit(order);
+                return RedirectToAction("MyComment");
+            }
+            return RedirectToAction("order");
+
         }
         /// <summary>
         /// 我的所有评价
@@ -134,6 +140,7 @@ namespace BlondeHeaven.Controllers
         {
 
             var res = await _userManager.GetUserAsync(HttpContext.User);
+
             if (res != null)
             {
                 var UserOR = new OrderModelView()

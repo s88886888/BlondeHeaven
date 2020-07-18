@@ -51,6 +51,11 @@
                    asp-action="Create"
                    asp-route-id="@feedback.Id">点我下单</a>
             </h3>
+            <h3>
+                <a asp-controller="Commodity"
+                   asp-action="Details"
+                   asp-route-id="@feedback.Id">查看详细</a>
+            </h3>
             <p class="list-group-item-text">@feedback.Price</p>
         </div>
     }

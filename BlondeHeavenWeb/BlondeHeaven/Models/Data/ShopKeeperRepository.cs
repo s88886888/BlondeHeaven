@@ -34,7 +34,6 @@ namespace BlondeHeaven.Models
         public List<ShopKeeper> GetAllShopKeepers()
         {
             return _m_context.ShopKeepers.Where(m => m.IsRemo == false).ToList();
-
         }
         public List<ShopKeeper> GetUserByShopKeepers(string id)
         {

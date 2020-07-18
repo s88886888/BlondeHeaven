@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BlondeHeaven.Model;
 using BlondeHeaven.Models;
 using BlondeHeaven.Models.Interface;
 using BlondeHeaven.ViewModels;
+using BlondeHeaven.ViewModels.Base;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -16,12 +14,15 @@ namespace BlondeHeaven.Controllers
     [Authorize(Roles = "AdminShop,Admin")]
     public class CommodityController : Controller
     {
-        private ICommodityRepository _db;
+        private int comid { get; set; } = 0;
+        private ICommodityRepository _com;
+        private IOrderRepository _or;
         private IShopKeeperRepository _shop;
         private UserManager<ApplicationUser> _userManager;
-        public CommodityController(ICommodityRepository db, IShopKeeperRepository shop, UserManager<ApplicationUser> userManager)
+        public CommodityController(ICommodityRepository db, IOrderRepository or, IShopKeeperRepository shop, UserManager<ApplicationUser> userManager)
         {
-            _db = db;
+            _or = or;
+            _com = db;
             _shop = shop;
             _userManager = userManager;
         }
@@ -34,7 +35,7 @@ namespace BlondeHeaven.Controllers
             }
             var model = new ShopModelView()
             {
-                Commoditys = _db.GetCommodityBListId(id)
+                Commoditys = _com.GetCommodityByListshopId(id)
             };
             return View(model);
 
@@ -43,9 +44,13 @@ namespace BlondeHeaven.Controllers
         // GET: CommodityController/Details/5
         public ActionResult Details(int id)
         {
-            CommodityViewModel model = new CommodityViewModel();
-            var com = _db.GetCommodityById(id);
-            ComData(model, com);
+            var model = new OrderModelView();
+            model.Commoditys = _com.GetCommodityByListId(id);
+            foreach (var item in model.Commoditys)
+            {
+                comid = item.Id;
+            }
+            model.Orders = _or.GetEndOrderByCommodityId(comid);
             return View(model);
         }
 
@@ -72,7 +77,7 @@ namespace BlondeHeaven.Controllers
             model.ApplicationUserId = res.Id;
             //model.Id = 0;
             ComData(model, com);
-            _db.Add(com);
+            _com.Add(com);
 
             return RedirectToAction("index", "shop");
         }
@@ -81,7 +86,7 @@ namespace BlondeHeaven.Controllers
         public ActionResult Edit(int id)
         {
             CommodityViewModel model = new CommodityViewModel();
-            var com = _db.GetCommodityById(id);
+            var com = _com.GetCommodityById(id);
             ComData(model, com);
             return View(model);
         }
@@ -99,7 +104,7 @@ namespace BlondeHeaven.Controllers
             com.ShopKeeperId = model.Id;
             com.ShopKeeperName = model.ShopKeeperName;
             com.Address = model.Address;
-            _db.Edit(com);
+            _com.Edit(com);
             return RedirectToAction("index", "shop");
         }
         // POST: CommodityController/Delete/5
@@ -107,7 +112,7 @@ namespace BlondeHeaven.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
-            _db.Remo(id);
+            _com.Remo(id);
             return RedirectToAction("index", "shop");
         }
 

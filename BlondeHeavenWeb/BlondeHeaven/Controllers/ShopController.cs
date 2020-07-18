@@ -52,16 +52,12 @@ namespace BlondeHeaven.Controllers
             return View(viewModel);
         }
         // GET: ShopController1/Details/5
-        public ActionResult Details(int id, ShopViewModel shopViewModel)
+        public ActionResult Details(int id)
         {
-            var viewModel = new ShopModelView()
-            {
-                ShopKeepers = _db.GetShopKeeperleByIdall(id),
-                Commoditys = _com.GetCommodityBListId(id)
-            };
-
-
-            return View(viewModel);
+            var Model = new ShopModelView();
+            Model.ShopKeepers = _db.GetShopKeeperleByIdall(id);
+            Model.Commoditys = _com.GetCommodityByListshopId(id);
+            return View(Model);
         }
         [Authorize(Roles = "AdminShop,Admin")]
         // GET: ShopController1/Create
@@ -77,7 +73,7 @@ namespace BlondeHeaven.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ShopViewModel ShopViewModel, List<IFormFile> files)
         {
-        
+
             //动态获取当前登入用户信息
             var res = await _userManager.GetUserAsync(HttpContext.User);
             ShopKeeper shop = new ShopKeeper();

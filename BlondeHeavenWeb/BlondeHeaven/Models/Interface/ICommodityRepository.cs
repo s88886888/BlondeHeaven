@@ -8,6 +8,16 @@ namespace BlondeHeaven.Models.Interface
 {
     public interface ICommodityRepository
     {
+
+
+
+
+        /// <summary>
+        /// 根据Id查询所有列表
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        List<Commodity> GetCommodityByListshopId(int id);
         /// <summary>
         /// 查询所有的商品
         /// </summary>
@@ -25,7 +35,7 @@ namespace BlondeHeaven.Models.Interface
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        List<Commodity> GetCommodityBListId(int id);
+        List<Commodity> GetCommodityByListId(int id);
         /// <summary>
         /// 根据用户id查询 查询所有商品
         /// </summary>

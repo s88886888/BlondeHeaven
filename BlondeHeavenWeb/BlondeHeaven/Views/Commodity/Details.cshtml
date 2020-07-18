@@ -1,0 +1,42 @@
+﻿@model BlondeHeaven.ViewModels.Base.OrderModelView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@foreach (var noodle in Model.Commoditys)
+{
+    <div class="caption">
+        <h3>价格 @noodle.Price</h3>
+        <p>单子创建时间 @noodle.DateTime</p>
+        <p>店铺名字 @noodle.ShopKeeperName</p>
+        <p>地址 @noodle.Address</p>
+        <p>@noodle.ApplicationUserId</p>
+        <p>名字 @noodle.Name</p>
+        <p>价格 @noodle.Price</p>
+        <p>照片 @noodle.Photo</p>
+        <p>销量 @noodle.Sales</p>
+        <p>预约时间 @noodle.CreateCommodity</p>
+        <p>--------------------------------------------------------------------</p>
+    </div>
+
+}
+
+@foreach (var or in Model.Orders)
+{
+    <div class="list-group">
+        <a class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="list-group-item-heading">@or.Name</h5>
+                <small class="pull-right">@or.DateTime</small>
+            </div>
+            <p class="list-group-item-text">@or.Comment</p>
+        </a>
+    </div>
+}
+
+
+
+<div>
+    <a asp-action="Index" asp-controller="shop">Back to List</a>
+</div>

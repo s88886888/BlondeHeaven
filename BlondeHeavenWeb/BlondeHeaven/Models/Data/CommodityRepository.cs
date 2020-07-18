@@ -33,8 +33,8 @@ namespace BlondeHeaven.Models
 
         public List<Commodity> GetAllCommodity()
         {
-            var shop = _m_context.Commoditys.Where(m => m.IsRemo == false).ToList();
-            return shop;
+            return _m_context.Commoditys.Where(m => m.IsRemo == false).ToList();
+
         }
 
         public Commodity GetCommodityById(int id)
@@ -42,6 +42,11 @@ namespace BlondeHeaven.Models
 
             return GetAllCommodity().FirstOrDefault(m => m.Id == id);
         }
+        public List<Commodity> GetCommodityByListId(int id)
+        {
+            return _m_context.Commoditys.Where(m => m.Id == id).ToList();
+        }
+
         public List<Commodity> GetCommodityByUserId(string id)
         {
 
@@ -49,13 +54,12 @@ namespace BlondeHeaven.Models
             return com;
         }
 
-        public List<Commodity> GetCommodityBListId(int id)
+        public List<Commodity> GetCommodityByListshopId(int id)
         {
 
             return GetAllCommodity().Where(m => m.ShopKeeperId == id).ToList();
 
         }
-
         public void Remo(int id)
         {
             var shop = GetCommodityById(id);

@@ -61,7 +61,7 @@ namespace BlondeHeaven.Models
         public List<Order> GetEndOrderByUserId(string id)
         {
 
-            return _db.Orders.Where(m => m.ApplicationUserId == id && m.IsRemo == true && m.Comment == null).ToList();
+            return _db.Orders.Where(m => m.ApplicationUserId == id && m.IsRemo == true).ToList();
         }
         public List<Order> GetOrderByCommodityId(int id)
         {
